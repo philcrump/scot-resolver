@@ -1,0 +1,363 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 9
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L agg-kicad:AD8692ARMZ IC3
+U 1 1 5E2564F7
+P 5100 3300
+AR Path="/5E253905/5E2564F7" Ref="IC3"  Part="1" 
+AR Path="/5E46BA7D/5E2564F7" Ref="IC5"  Part="1" 
+AR Path="/5E46F57D/5E2564F7" Ref="IC6"  Part="1" 
+AR Path="/5E46F583/5E2564F7" Ref="IC7"  Part="1" 
+F 0 "IC6" H 5100 3925 50  0000 C CNN
+F 1 "AD8692ARMZ" H 5100 3834 50  0000 C CNN
+F 2 "agg:MSOP-8" H 4800 2700 50  0001 L CNN
+F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/AD8691_8692_8694.pdf" H 4800 2600 50  0001 L CNN
+F 4 "584-AD8692ARMZ-R7" H 4800 2500 50  0001 L CNN "Mouser"
+	1    5100 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R17
+U 1 1 5E256D1D
+P 5950 2900
+AR Path="/5E253905/5E256D1D" Ref="R17"  Part="1" 
+AR Path="/5E46BA7D/5E256D1D" Ref="R25"  Part="1" 
+AR Path="/5E46F57D/5E256D1D" Ref="R30"  Part="1" 
+AR Path="/5E46F583/5E256D1D" Ref="R35"  Part="1" 
+F 0 "R30" V 5743 2900 50  0000 C CNN
+F 1 "4K7" V 5834 2900 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5880 2900 50  0001 C CNN
+F 3 "~" H 5950 2900 50  0001 C CNN
+	1    5950 2900
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C19
+U 1 1 5E257610
+P 6300 2650
+AR Path="/5E253905/5E257610" Ref="C19"  Part="1" 
+AR Path="/5E46BA7D/5E257610" Ref="C40"  Part="1" 
+AR Path="/5E46F57D/5E257610" Ref="C46"  Part="1" 
+AR Path="/5E46F583/5E257610" Ref="C52"  Part="1" 
+F 0 "C46" H 6185 2604 50  0000 R CNN
+F 1 "6n8" H 6185 2695 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 6338 2500 50  0001 C CNN
+F 3 "~" H 6300 2650 50  0001 C CNN
+	1    6300 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R15
+U 1 1 5E258A95
+P 5050 4500
+AR Path="/5E253905/5E258A95" Ref="R15"  Part="1" 
+AR Path="/5E46BA7D/5E258A95" Ref="R23"  Part="1" 
+AR Path="/5E46F57D/5E258A95" Ref="R28"  Part="1" 
+AR Path="/5E46F583/5E258A95" Ref="R33"  Part="1" 
+F 0 "R28" V 4843 4500 50  0000 C CNN
+F 1 "2K" V 4934 4500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4980 4500 50  0001 C CNN
+F 3 "~" H 5050 4500 50  0001 C CNN
+	1    5050 4500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C17
+U 1 1 5E258E42
+P 5050 4100
+AR Path="/5E253905/5E258E42" Ref="C17"  Part="1" 
+AR Path="/5E46BA7D/5E258E42" Ref="C38"  Part="1" 
+AR Path="/5E46F57D/5E258E42" Ref="C44"  Part="1" 
+AR Path="/5E46F583/5E258E42" Ref="C50"  Part="1" 
+F 0 "C44" V 5302 4100 50  0000 C CNN
+F 1 "1n2" V 5211 4100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5088 3950 50  0001 C CNN
+F 3 "~" H 5050 4100 50  0001 C CNN
+	1    5050 4100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R14
+U 1 1 5E25A0BD
+P 4600 4300
+AR Path="/5E253905/5E25A0BD" Ref="R14"  Part="1" 
+AR Path="/5E46BA7D/5E25A0BD" Ref="R22"  Part="1" 
+AR Path="/5E46F57D/5E25A0BD" Ref="R27"  Part="1" 
+AR Path="/5E46F583/5E25A0BD" Ref="R32"  Part="1" 
+F 0 "R27" H 4670 4346 50  0000 L CNN
+F 1 "1K2" H 4670 4255 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4530 4300 50  0001 C CNN
+F 3 "~" H 4600 4300 50  0001 C CNN
+	1    4600 4300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R16
+U 1 1 5E25CCF3
+P 5100 2500
+AR Path="/5E253905/5E25CCF3" Ref="R16"  Part="1" 
+AR Path="/5E46BA7D/5E25CCF3" Ref="R24"  Part="1" 
+AR Path="/5E46F57D/5E25CCF3" Ref="R29"  Part="1" 
+AR Path="/5E46F583/5E25CCF3" Ref="R34"  Part="1" 
+F 0 "R29" V 5307 2500 50  0000 C CNN
+F 1 "22K" V 5216 2500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 5030 2500 50  0001 C CNN
+F 3 "~" H 5100 2500 50  0001 C CNN
+	1    5100 2500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C18
+U 1 1 5E25ECB5
+P 5100 2100
+AR Path="/5E253905/5E25ECB5" Ref="C18"  Part="1" 
+AR Path="/5E46BA7D/5E25ECB5" Ref="C39"  Part="1" 
+AR Path="/5E46F57D/5E25ECB5" Ref="C45"  Part="1" 
+AR Path="/5E46F583/5E25ECB5" Ref="C51"  Part="1" 
+F 0 "C45" V 5352 2100 50  0000 C CNN
+F 1 "220p" V 5261 2100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 5138 1950 50  0001 C CNN
+F 3 "~" H 5100 2100 50  0001 C CNN
+	1    5100 2100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R13
+U 1 1 5E25FD02
+P 4100 3200
+AR Path="/5E253905/5E25FD02" Ref="R13"  Part="1" 
+AR Path="/5E46BA7D/5E25FD02" Ref="R21"  Part="1" 
+AR Path="/5E46F57D/5E25FD02" Ref="R26"  Part="1" 
+AR Path="/5E46F583/5E25FD02" Ref="R31"  Part="1" 
+F 0 "R26" V 4307 3200 50  0000 C CNN
+F 1 "27K" V 4216 3200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" V 4030 3200 50  0001 C CNN
+F 3 "~" H 4100 3200 50  0001 C CNN
+	1    4100 3200
+	0    -1   -1   0   
+$EndComp
+Text HLabel 3550 3200 0    50   Input ~ 0
+RECEIVER_INPUT
+Text HLabel 3550 3600 0    50   Input ~ 0
+AD2S1210_VREF
+Wire Wire Line
+	4500 3300 4500 3600
+Wire Wire Line
+	4500 3600 4700 3600
+Wire Wire Line
+	4700 3500 4600 3500
+Wire Wire Line
+	4600 3500 4600 4100
+Wire Wire Line
+	4600 4500 4900 4500
+Wire Wire Line
+	4900 4100 4600 4100
+Wire Wire Line
+	6100 2900 6300 2900
+Wire Wire Line
+	5800 2900 5600 2900
+Wire Wire Line
+	5500 3100 5600 3100
+Wire Wire Line
+	5600 3100 5600 4100
+Wire Wire Line
+	5600 4100 5200 4100
+Wire Wire Line
+	5600 4100 5600 4500
+Wire Wire Line
+	5600 4500 5200 4500
+Connection ~ 5600 4100
+Wire Wire Line
+	4600 4450 4600 4500
+Wire Wire Line
+	4600 4150 4600 4100
+Connection ~ 4600 4100
+Wire Wire Line
+	4600 4500 4600 4700
+Wire Wire Line
+	4600 4700 6300 4700
+Connection ~ 4600 4500
+Connection ~ 6300 2900
+Text HLabel 6900 3100 2    50   Input ~ 0
+AD2S1210_INPUT
+Wire Wire Line
+	5600 3100 6900 3100
+Connection ~ 5600 3100
+Wire Wire Line
+	6300 2900 6300 2800
+Wire Wire Line
+	6300 2500 6300 2400
+Wire Wire Line
+	4700 3200 4600 3200
+Wire Wire Line
+	4600 2500 4950 2500
+Wire Wire Line
+	5250 2500 5600 2500
+Wire Wire Line
+	5600 2500 5600 2900
+Connection ~ 5600 2900
+Wire Wire Line
+	5600 2900 5500 2900
+Wire Wire Line
+	4600 2500 4600 2100
+Wire Wire Line
+	4600 2100 4950 2100
+Connection ~ 4600 2500
+Wire Wire Line
+	5250 2100 5600 2100
+Wire Wire Line
+	5600 2100 5600 2500
+Connection ~ 5600 2500
+Wire Wire Line
+	4600 3200 4250 3200
+Connection ~ 4600 3200
+Wire Wire Line
+	3950 3200 3550 3200
+Wire Wire Line
+	4600 3200 4600 2500
+Wire Wire Line
+	4500 3300 4700 3300
+Wire Wire Line
+	6300 4700 6300 2900
+$Comp
+L Device:C C16
+U 1 1 5E281514
+P 4000 2600
+AR Path="/5E253905/5E281514" Ref="C16"  Part="1" 
+AR Path="/5E46BA7D/5E281514" Ref="C37"  Part="1" 
+AR Path="/5E46F57D/5E281514" Ref="C43"  Part="1" 
+AR Path="/5E46F583/5E281514" Ref="C49"  Part="1" 
+F 0 "C43" H 3885 2554 50  0000 R CNN
+F 1 "100n" H 3885 2645 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 4038 2450 50  0001 C CNN
+F 3 "~" H 4000 2600 50  0001 C CNN
+	1    4000 2600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4700 3000 4350 3000
+Wire Wire Line
+	4350 3000 4350 2750
+Wire Wire Line
+	4350 2750 4000 2750
+Wire Wire Line
+	4000 2450 4400 2450
+Wire Wire Line
+	4400 2450 4400 2900
+Wire Wire Line
+	4400 2900 4700 2900
+Wire Wire Line
+	4500 3600 3700 3600
+Connection ~ 4500 3600
+$Comp
+L Device:C C15
+U 1 1 5E297D03
+P 3700 3800
+AR Path="/5E253905/5E297D03" Ref="C15"  Part="1" 
+AR Path="/5E46BA7D/5E297D03" Ref="C36"  Part="1" 
+AR Path="/5E46F57D/5E297D03" Ref="C42"  Part="1" 
+AR Path="/5E46F583/5E297D03" Ref="C48"  Part="1" 
+F 0 "C42" H 3585 3754 50  0000 R CNN
+F 1 "100n" H 3585 3845 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 3738 3650 50  0001 C CNN
+F 3 "~" H 3700 3800 50  0001 C CNN
+	1    3700 3800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3700 4000 3700 3950
+Wire Wire Line
+	3700 3650 3700 3600
+Connection ~ 3700 3600
+Wire Wire Line
+	3700 3600 3550 3600
+Text HLabel 3400 2450 0    50   Input ~ 0
+RECEIVER_5V
+$Comp
+L Device:C C14
+U 1 1 5E29C4B1
+P 3600 2600
+AR Path="/5E253905/5E29C4B1" Ref="C14"  Part="1" 
+AR Path="/5E46BA7D/5E29C4B1" Ref="C35"  Part="1" 
+AR Path="/5E46F57D/5E29C4B1" Ref="C41"  Part="1" 
+AR Path="/5E46F583/5E29C4B1" Ref="C47"  Part="1" 
+F 0 "C41" H 3485 2554 50  0000 R CNN
+F 1 "1u" H 3485 2645 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3638 2450 50  0001 C CNN
+F 3 "~" H 3600 2600 50  0001 C CNN
+	1    3600 2600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3400 2800 3400 2750
+Wire Wire Line
+	3400 2750 3600 2750
+Connection ~ 4000 2750
+Connection ~ 3600 2750
+Wire Wire Line
+	3600 2750 4000 2750
+Wire Wire Line
+	4000 2450 3600 2450
+Connection ~ 4000 2450
+Connection ~ 3600 2450
+Wire Wire Line
+	3600 2450 3400 2450
+$Comp
+L power:GNDA #PWR0110
+U 1 1 5E28F597
+P 3400 2800
+AR Path="/5E253905/5E28F597" Ref="#PWR0110"  Part="1" 
+AR Path="/5E46BA7D/5E28F597" Ref="#PWR0127"  Part="1" 
+AR Path="/5E46F57D/5E28F597" Ref="#PWR0130"  Part="1" 
+AR Path="/5E46F583/5E28F597" Ref="#PWR0133"  Part="1" 
+F 0 "#PWR0130" H 3400 2550 50  0001 C CNN
+F 1 "GNDA" H 3405 2627 50  0000 C CNN
+F 2 "" H 3400 2800 50  0001 C CNN
+F 3 "" H 3400 2800 50  0001 C CNN
+	1    3400 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR0111
+U 1 1 5E28F9AD
+P 3700 4000
+AR Path="/5E253905/5E28F9AD" Ref="#PWR0111"  Part="1" 
+AR Path="/5E46BA7D/5E28F9AD" Ref="#PWR0128"  Part="1" 
+AR Path="/5E46F57D/5E28F9AD" Ref="#PWR0131"  Part="1" 
+AR Path="/5E46F583/5E28F9AD" Ref="#PWR0134"  Part="1" 
+F 0 "#PWR0131" H 3700 3750 50  0001 C CNN
+F 1 "GNDA" H 3705 3827 50  0000 C CNN
+F 2 "" H 3700 4000 50  0001 C CNN
+F 3 "" H 3700 4000 50  0001 C CNN
+	1    3700 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR0112
+U 1 1 5E28FD4C
+P 6300 2400
+AR Path="/5E253905/5E28FD4C" Ref="#PWR0112"  Part="1" 
+AR Path="/5E46BA7D/5E28FD4C" Ref="#PWR0129"  Part="1" 
+AR Path="/5E46F57D/5E28FD4C" Ref="#PWR0132"  Part="1" 
+AR Path="/5E46F583/5E28FD4C" Ref="#PWR0135"  Part="1" 
+F 0 "#PWR0132" H 6300 2150 50  0001 C CNN
+F 1 "GNDA" H 6305 2227 50  0000 C CNN
+F 2 "" H 6300 2400 50  0001 C CNN
+F 3 "" H 6300 2400 50  0001 C CNN
+	1    6300 2400
+	-1   0    0    1   
+$EndComp
+$EndSCHEMATC

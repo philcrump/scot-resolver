@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 1
+Sheet 1 9
 Title ""
 Date ""
 Rev ""
@@ -14,615 +14,396 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector:Conn_01x02_Female J?
-U 1 1 5E03D7A0
-P 1300 1250
-F 0 "J?" H 1192 925 50  0000 C CNN
-F 1 "Conn_01x02_Female" H 1192 1016 50  0000 C CNN
-F 2 "" H 1300 1250 50  0001 C CNN
-F 3 "~" H 1300 1250 50  0001 C CNN
-	1    1300 1250
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J2
 U 1 1 5E03E563
-P 1350 2600
-F 0 "J?" H 1242 2275 50  0000 C CNN
-F 1 "Conn_01x02_Female" H 1242 2366 50  0000 C CNN
-F 2 "" H 1350 2600 50  0001 C CNN
-F 3 "~" H 1350 2600 50  0001 C CNN
-	1    1350 2600
+P 1350 2700
+F 0 "J2" H 1242 2375 50  0000 C CNN
+F 1 "Conn_01x02_Female" H 1242 2466 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 1350 2700 50  0001 C CNN
+F 3 "~" H 1350 2700 50  0001 C CNN
+	1    1350 2700
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J3
 U 1 1 5E03F192
-P 1350 3450
-F 0 "J?" H 1242 3125 50  0000 C CNN
-F 1 "Conn_01x02_Female" H 1242 3216 50  0000 C CNN
-F 2 "" H 1350 3450 50  0001 C CNN
-F 3 "~" H 1350 3450 50  0001 C CNN
-	1    1350 3450
+P 1350 3550
+F 0 "J3" H 1242 3225 50  0000 C CNN
+F 1 "Conn_01x02_Female" H 1242 3316 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 1350 3550 50  0001 C CNN
+F 3 "~" H 1350 3550 50  0001 C CNN
+	1    1350 3550
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	1550 3350 1700 3350
+	1550 3450 1700 3450
 Wire Wire Line
-	1700 2500 1550 2500
+	1700 2600 1550 2600
+$Sheet
+S 7550 1250 1750 700 
+U 5E0AB524
+F0 "Resolver Exciter" 50
+F1 "scot-resolver-exciter.sch" 50
+F2 "AD2S1210_VREF" I L 7550 1550 50 
+F3 "EXC+_OUTPUT" I R 9300 1550 50 
+F4 "EXC-_OUTPUT" I R 9300 1650 50 
+F5 "AD2S1210_EXC+" I L 7550 1700 50 
+F6 "AD2S1210_EXC-" I L 7550 1850 50 
+F7 "EXC_12V" I L 7550 1350 50 
+F8 "EXC_5V" I L 7550 1450 50 
+$EndSheet
+$Sheet
+S 7550 2600 1750 450 
+U 5E253905
+F0 "Resolver Receiver SIN+" 50
+F1 "scot-resolver-receiver.sch" 50
+F2 "RECEIVER_INPUT" I R 9300 2950 50 
+F3 "AD2S1210_VREF" I L 7550 2800 50 
+F4 "AD2S1210_INPUT" I L 7550 2950 50 
+F5 "RECEIVER_5V" I L 7550 2700 50 
+$EndSheet
+$Sheet
+S 2200 950  1350 1050
+U 5E2C28ED
+F0 "Power Supplies" 50
+F1 "scot-resolver-power.sch" 50
+F2 "12V_EXCITER" I R 3550 1100 50 
+F3 "POWER_28V+" I L 2200 1050 50 
+F4 "POWER_28V-" I L 2200 1150 50 
+F5 "5V_CAN_TXRX" I R 3550 1700 50 
+F6 "3.3V_MCU" I R 3550 1900 50 
+F7 "5V_RESOLVER_DIGITAL" I R 3550 1500 50 
+F8 "5V_RESOLVER_ANALOGUE" I R 3550 1300 50 
+$EndSheet
 $Comp
-L agg-kicad:MCP2562 IC?
-U 1 1 5E040B67
-P 2800 2800
-F 0 "IC?" H 2800 2385 50  0000 C CNN
-F 1 "MCP2562" H 2800 2476 50  0000 C CNN
-F 2 "agg:DFN-8-EP-MICROCHIP" H 2500 2400 50  0001 L CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005167C.pdf" H 2500 2300 50  0001 L CNN
-F 4 "" H 2500 2200 50  0001 L CNN "Farnell"
-F 5 "824-3135" H 2500 2100 50  0001 L CNN "RS"
-	1    2800 2800
+L Connector:Conn_01x02_Female J1
+U 1 1 5E44F232
+P 1350 1150
+F 0 "J1" H 1242 825 50  0000 C CNN
+F 1 "Conn_01x02_Female" H 1242 916 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 1350 1150 50  0001 C CNN
+F 3 "~" H 1350 1150 50  0001 C CNN
+	1    1350 1150
 	-1   0    0    1   
 $EndComp
+Wire Wire Line
+	2200 1050 1550 1050
+Wire Wire Line
+	1550 1150 2200 1150
+Wire Wire Line
+	9950 1550 9300 1550
+Wire Wire Line
+	9300 1650 9950 1650
+$Sheet
+S 7550 3300 1750 450 
+U 5E46BA7D
+F0 "Resolver Receiver SIN-" 50
+F1 "scot-resolver-receiver.sch" 50
+F2 "RECEIVER_INPUT" I R 9300 3650 50 
+F3 "AD2S1210_VREF" I L 7550 3500 50 
+F4 "AD2S1210_INPUT" I L 7550 3650 50 
+F5 "RECEIVER_5V" I L 7550 3400 50 
+$EndSheet
+$Sheet
+S 7550 4200 1750 450 
+U 5E46F57D
+F0 "Resolver Receiver COS+" 50
+F1 "scot-resolver-receiver.sch" 50
+F2 "RECEIVER_INPUT" I R 9300 4550 50 
+F3 "AD2S1210_VREF" I L 7550 4400 50 
+F4 "AD2S1210_INPUT" I L 7550 4550 50 
+F5 "RECEIVER_5V" I L 7550 4300 50 
+$EndSheet
+$Sheet
+S 7550 4900 1750 450 
+U 5E46F583
+F0 "Resolver Receiver COS-" 50
+F1 "scot-resolver-receiver.sch" 50
+F2 "RECEIVER_INPUT" I R 9300 5250 50 
+F3 "AD2S1210_VREF" I L 7550 5100 50 
+F4 "AD2S1210_INPUT" I L 7550 5250 50 
+F5 "RECEIVER_5V" I L 7550 5000 50 
+$EndSheet
+Wire Wire Line
+	9500 3250 9500 2950
+Wire Wire Line
+	9500 2950 9300 2950
+Wire Wire Line
+	9500 3350 9500 3650
+Wire Wire Line
+	9500 3650 9300 3650
+Wire Wire Line
+	9500 4850 9500 4550
+Wire Wire Line
+	9500 4550 9300 4550
+Wire Wire Line
+	9500 4950 9500 5250
+Wire Wire Line
+	9500 5250 9300 5250
+$Sheet
+S 2200 2650 1350 750 
+U 5E4877AC
+F0 "CAN TXRX" 50
+F1 "scot-resolver-can-txrx.sch" 50
+F2 "CAN_L" I L 2200 3100 50 
+F3 "CAN_H" I L 2200 2900 50 
+F4 "CAN_MCU_RXD" I R 3550 3300 50 
+F5 "CAN_MCU_TXD" I R 3550 3150 50 
+F6 "3.3V_MCU" I R 3550 2900 50 
+F7 "5V_CAN" I R 3550 2750 50 
+$EndSheet
+Wire Wire Line
+	1700 2600 1700 2900
+Wire Wire Line
+	1700 2900 2200 2900
+Connection ~ 1700 2900
+Wire Wire Line
+	1700 2900 1700 3450
+Wire Wire Line
+	2200 3100 1600 3100
+Wire Wire Line
+	1600 3100 1600 3550
+Wire Wire Line
+	1600 3550 1550 3550
+Wire Wire Line
+	1600 3100 1600 2700
+Wire Wire Line
+	1600 2700 1550 2700
+Connection ~ 1600 3100
+Wire Wire Line
+	3550 2900 3800 2900
+Wire Wire Line
+	3800 2900 3800 2700
+Wire Wire Line
+	3800 1900 3550 1900
+Wire Wire Line
+	3550 1700 3700 1700
+Wire Wire Line
+	3700 1700 3700 2750
+Wire Wire Line
+	3700 2750 3550 2750
+Wire Wire Line
+	3550 1100 7250 1100
+Wire Wire Line
+	7250 1100 7250 1350
+Wire Wire Line
+	7250 1350 7550 1350
+Wire Wire Line
+	7100 1300 7100 1450
+Wire Wire Line
+	7100 1450 7550 1450
+Wire Wire Line
+	7100 1450 7100 2700
+Wire Wire Line
+	7100 2700 7550 2700
+Connection ~ 7100 1450
+Wire Wire Line
+	7100 2700 7100 3400
+Wire Wire Line
+	7100 3400 7550 3400
+Connection ~ 7100 2700
+Wire Wire Line
+	7100 3400 7100 4300
+Wire Wire Line
+	7100 4300 7550 4300
+Connection ~ 7100 3400
+Wire Wire Line
+	7100 4300 7100 5000
+Wire Wire Line
+	7100 5000 7550 5000
+Connection ~ 7100 4300
+$Sheet
+S 4400 2250 1900 1650
+U 5E4C3ECD
+F0 "Microcontroller & Interface" 50
+F1 "scot-resolver-mcu.sch" 50
+F2 "MCU_CAN_TXD" I L 4400 2950 50 
+F3 "MCU_CAN_RXD" I L 4400 3100 50 
+F4 "3.3V_MCU" I L 4400 2700 50 
+F5 "VREF_AD2S1210" I R 6300 2450 50 
+F6 "RESOLVER_EXC+" I R 6300 2700 50 
+F7 "RESOLVER_EXC-" I R 6300 2850 50 
+F8 "RESOLVER_SIN+" I R 6300 3100 50 
+F9 "RESOLVER_SIN-" I R 6300 3250 50 
+F10 "RESOLVER_COS+" I R 6300 3500 50 
+F11 "RESOLVER_COS-" I R 6300 3650 50 
+F12 "5V_RESOLVER_ANALOGUE" I L 4400 2400 50 
+F13 "5V_RESOLVER_DIGITAL" I L 4400 2550 50 
+$EndSheet
+Wire Wire Line
+	4200 1300 4200 2400
+Wire Wire Line
+	4200 2400 4400 2400
+Wire Wire Line
+	4200 1300 7100 1300
+Wire Wire Line
+	3800 2700 4400 2700
+Connection ~ 3800 2700
+Wire Wire Line
+	3800 2700 3800 1900
+Wire Wire Line
+	4400 2950 4000 2950
+Wire Wire Line
+	4000 2950 4000 3150
+Wire Wire Line
+	4000 3150 3550 3150
+Wire Wire Line
+	3550 3300 4150 3300
+Wire Wire Line
+	4150 3300 4150 3100
+Wire Wire Line
+	4150 3100 4400 3100
+Wire Wire Line
+	7550 1550 6800 1550
+Wire Wire Line
+	6800 1550 6800 2450
+Wire Wire Line
+	6800 2450 6300 2450
+Wire Wire Line
+	6800 2450 6800 2800
+Wire Wire Line
+	6800 2800 7550 2800
+Connection ~ 6800 2450
+Wire Wire Line
+	6800 2800 6800 3500
+Wire Wire Line
+	6800 3500 7550 3500
+Connection ~ 6800 2800
+Wire Wire Line
+	6800 3500 6800 4400
+Wire Wire Line
+	6800 4400 7550 4400
+Connection ~ 6800 3500
+Wire Wire Line
+	6800 4400 6800 5100
+Wire Wire Line
+	6800 5100 7550 5100
+Connection ~ 6800 4400
+Wire Wire Line
+	6300 3500 6650 3500
+Wire Wire Line
+	6650 3500 6650 4550
+Wire Wire Line
+	6650 4550 7550 4550
+Wire Wire Line
+	7550 5250 6550 5250
+Wire Wire Line
+	6550 5250 6550 3650
+Wire Wire Line
+	6550 3650 6300 3650
+Wire Wire Line
+	6300 3250 6950 3250
+Wire Wire Line
+	6950 3250 6950 3650
+Wire Wire Line
+	6950 3650 7550 3650
+Wire Wire Line
+	6300 3100 6950 3100
+Wire Wire Line
+	6950 3100 6950 2950
+Wire Wire Line
+	6950 2950 7550 2950
+Wire Wire Line
+	6300 2700 6550 2700
+Wire Wire Line
+	6550 2700 6550 1700
+Wire Wire Line
+	6550 1700 7550 1700
+Wire Wire Line
+	7550 1850 6650 1850
+Wire Wire Line
+	6650 1850 6650 2850
+Wire Wire Line
+	6650 2850 6300 2850
+Text Notes 2100 1300 2    50   ~ 0
+Orange & Block Powerpole Connector
+Text Notes 10500 1950 2    50   ~ 0
+Resolver Exciter Coil
+Text Notes 10750 3650 2    50   ~ 0
+Resolver Sine Receiver Coil
+Text Notes 10850 5300 2    50   ~ 0
+Resolver Cosine Receiver Coil
+Wire Wire Line
+	4200 1300 3550 1300
+Connection ~ 4200 1300
+Wire Wire Line
+	4400 2550 4050 2550
+Wire Wire Line
+	4050 2550 4050 1500
+Wire Wire Line
+	4050 1500 3550 1500
 $Comp
-L agg-kicad:TSR1 IC?
-U 1 1 5E0421E3
-P 2800 1300
-F 0 "IC?" H 2800 1625 50  0000 C CNN
-F 1 "TSR1" H 2800 1534 50  0000 C CNN
-F 2 "agg:TSR1" H 2500 1000 50  0001 L CNN
-F 3 "http://www.tracopower.com/products/tsr1.pdf" H 2500 900 50  0001 L CNN
-	1    2800 1300
-	1    0    0    -1  
+L power:GNDA #PWR0101
+U 1 1 5E620224
+P 9950 1750
+F 0 "#PWR0101" H 9950 1500 50  0001 C CNN
+F 1 "GNDA" V 9955 1623 50  0000 R CNN
+F 2 "" H 9950 1750 50  0001 C CNN
+F 3 "" H 9950 1750 50  0001 C CNN
+	1    9950 1750
+	0    1    1    0   
 $EndComp
+Wire Wire Line
+	9500 3250 9950 3250
+Wire Wire Line
+	9950 3350 9500 3350
 $Comp
-L Device:D D?
-U 1 1 5E042A49
-P 1900 1150
-F 0 "D?" H 1900 934 50  0000 C CNN
-F 1 "D" H 1900 1025 50  0000 C CNN
-F 2 "" H 1900 1150 50  0001 C CNN
-F 3 "~" H 1900 1150 50  0001 C CNN
-	1    1900 1150
-	-1   0    0    1   
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5E0449C8
-P 2100 1300
-F 0 "C?" H 2215 1346 50  0000 L CNN
-F 1 "1u" H 2215 1255 50  0000 L CNN
-F 2 "" H 2138 1150 50  0001 C CNN
-F 3 "~" H 2100 1300 50  0001 C CNN
-	1    2100 1300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Regulator_Linear:MCP1703A-5002_SOT223 U?
-U 1 1 5E046296
-P 6100 2950
-F 0 "U?" H 6100 3192 50  0000 C CNN
-F 1 "MCP1703A-5002_SOT223" H 6100 3101 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 6100 3150 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005122B.pdf" H 6100 2900 50  0001 C CNN
-	1    6100 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Regulator_Linear:LT1762 U?
-U 1 1 5E0484A7
-P 6150 1250
-F 0 "U?" H 6150 1717 50  0000 C CNN
-F 1 "LT1762" H 6150 1626 50  0000 C CNN
-F 2 "Package_SO:MSOP-8_3x3mm_P0.65mm" H 6150 900 50  0001 C CNN
-F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/LT1762.pdf" H 6150 700 50  0001 C CNN
-	1    6150 1250
-	1    0    0    -1  
-$EndComp
-$Comp
-L agg-kicad:STM32F0xxKxTx IC?
-U 1 1 5E04934A
-P 5250 4700
-F 0 "IC?" H 5250 5925 50  0000 C CNN
-F 1 "STM32F0xxKxTx" H 5250 5834 50  0000 C CNN
-F 2 "agg:LQFP-32" H 4950 3500 50  0001 L CNN
-F 3 "http://www.st.com/web/en/resource/technical/document/datasheet/DM00088500.pdf" H 4950 3400 50  0001 L CNN
-F 4 "2432085" H 4950 3300 50  0001 L CNN "Farnell"
-	1    5250 4700
-	1    0    0    -1  
-$EndComp
-$Comp
-L agg-kicad:SWD P?
-U 1 1 5E04ACA2
-P 6700 5750
-F 0 "P?" H 6700 6175 50  0000 C CNN
-F 1 "SWD" H 6700 6084 50  0000 C CNN
-F 2 "agg:FTSH-105-01-F-D-K" H 6300 5350 50  0001 L CNN
-F 3 "" H 7050 5550 50  0001 C CNN
-F 4 "FTSH-105-01-F-D-K" H 6300 5250 50  0001 L CNN "Toby"
-	1    6700 5750
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x02_Female J?
-U 1 1 5E04D921
-P 9350 2150
-F 0 "J?" H 9378 2126 50  0000 L CNN
-F 1 "Conn_01x02_Female" H 9378 2035 50  0000 L CNN
-F 2 "" H 9350 2150 50  0001 C CNN
-F 3 "~" H 9350 2150 50  0001 C CNN
-	1    9350 2150
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x02_Female J?
-U 1 1 5E04ED5B
-P 9350 3050
-F 0 "J?" H 9378 3026 50  0000 L CNN
-F 1 "Conn_01x02_Female" H 9378 2935 50  0000 L CNN
-F 2 "" H 9350 3050 50  0001 C CNN
-F 3 "~" H 9350 3050 50  0001 C CNN
-	1    9350 3050
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x02_Female J?
-U 1 1 5E04F35C
-P 9350 3900
-F 0 "J?" H 9378 3876 50  0000 L CNN
-F 1 "Conn_01x02_Female" H 9378 3785 50  0000 L CNN
-F 2 "" H 9350 3900 50  0001 C CNN
-F 3 "~" H 9350 3900 50  0001 C CNN
-	1    9350 3900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Regulator_Linear:MCP1703A-3302_SOT223 U?
-U 1 1 5E04FF55
-P 6100 2200
-F 0 "U?" H 6100 2442 50  0000 C CNN
-F 1 "MCP1703A-3302_SOT223" H 6100 2351 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 6100 2400 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20005122B.pdf" H 6100 2150 50  0001 C CNN
-	1    6100 2200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5E041B99
-P 3400 1300
-F 0 "C?" H 3515 1346 50  0000 L CNN
-F 1 "1u" H 3515 1255 50  0000 L CNN
-F 2 "" H 3438 1150 50  0001 C CNN
-F 3 "~" H 3400 1300 50  0001 C CNN
-	1    3400 1300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Ferrite_Bead FB?
-U 1 1 5E04236A
-P 3800 1150
-F 0 "FB?" V 3526 1150 50  0000 C CNN
-F 1 "Ferrite_Bead" V 3617 1150 50  0000 C CNN
-F 2 "" V 3730 1150 50  0001 C CNN
-F 3 "~" H 3800 1150 50  0001 C CNN
-	1    3800 1150
+L power:GNDA #PWR0102
+U 1 1 5E62D3A8
+P 9950 3450
+F 0 "#PWR0102" H 9950 3200 50  0001 C CNN
+F 1 "GNDA" V 9955 3323 50  0000 R CNN
+F 2 "" H 9950 3450 50  0001 C CNN
+F 3 "" H 9950 3450 50  0001 C CNN
+	1    9950 3450
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:Ferrite_Bead FB?
-U 1 1 5E042B50
-P 3800 1450
-F 0 "FB?" V 3526 1450 50  0000 C CNN
-F 1 "Ferrite_Bead" V 3617 1450 50  0000 C CNN
-F 2 "" V 3730 1450 50  0001 C CNN
-F 3 "~" H 3800 1450 50  0001 C CNN
-	1    3800 1450
+L power:GNDA #PWR0103
+U 1 1 5E638B63
+P 9950 5050
+F 0 "#PWR0103" H 9950 4800 50  0001 C CNN
+F 1 "GNDA" V 9955 4923 50  0000 R CNN
+F 2 "" H 9950 5050 50  0001 C CNN
+F 3 "" H 9950 5050 50  0001 C CNN
+	1    9950 5050
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	3650 1150 3400 1150
+	9950 4950 9500 4950
 Wire Wire Line
-	3400 1150 3200 1150
-Wire Wire Line
-	3200 1150 3200 1200
-Connection ~ 3400 1150
-Wire Wire Line
-	3650 1450 3400 1450
-Wire Wire Line
-	3400 1450 3400 1500
-Wire Wire Line
-	3400 1500 2400 1500
-Wire Wire Line
-	2400 1500 2400 1450
-Connection ~ 3400 1450
-Wire Wire Line
-	2400 1450 2100 1450
-Connection ~ 2400 1450
-Wire Wire Line
-	2400 1450 2400 1400
-Wire Wire Line
-	2100 1450 1600 1450
-Wire Wire Line
-	1600 1450 1600 1250
-Wire Wire Line
-	1600 1250 1500 1250
-Connection ~ 2100 1450
-Wire Wire Line
-	1500 1150 1750 1150
-Wire Wire Line
-	2050 1150 2100 1150
-Wire Wire Line
-	2100 1150 2400 1150
-Wire Wire Line
-	2400 1150 2400 1200
-Connection ~ 2100 1150
+	9500 4850 9950 4850
 $Comp
-L Device:R R?
-U 1 1 5E064E7C
-P 1850 3250
-F 0 "R?" V 1643 3250 50  0000 C CNN
-F 1 "120R" V 1734 3250 50  0000 C CNN
-F 2 "" V 1780 3250 50  0001 C CNN
-F 3 "~" H 1850 3250 50  0001 C CNN
-	1    1850 3250
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	1550 3450 2000 3450
-Wire Wire Line
-	1550 2600 2000 2600
-$Comp
-L power:GND #PWR?
-U 1 1 5E06D559
-P 4150 1500
-F 0 "#PWR?" H 4150 1250 50  0001 C CNN
-F 1 "GND" H 4155 1327 50  0000 C CNN
-F 2 "" H 4150 1500 50  0001 C CNN
-F 3 "" H 4150 1500 50  0001 C CNN
-	1    4150 1500
-	1    0    0    -1  
+L Connector:Conn_01x03_Female J4
+U 1 1 5E63F585
+P 10150 1650
+F 0 "J4" H 10042 1325 50  0000 C CNN
+F 1 "Conn_01x03_Female" H 10042 1416 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 10150 1650 50  0001 C CNN
+F 3 "~" H 10150 1650 50  0001 C CNN
+	1    10150 1650
+	1    0    0    1   
 $EndComp
 $Comp
-L Device:C C?
-U 1 1 5E06DA6E
-P 4150 1300
-F 0 "C?" H 4265 1346 50  0000 L CNN
-F 1 "10u" H 4265 1255 50  0000 L CNN
-F 2 "" H 4188 1150 50  0001 C CNN
-F 3 "~" H 4150 1300 50  0001 C CNN
-	1    4150 1300
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4150 1150 3950 1150
-Wire Wire Line
-	3950 1450 4150 1450
-$Comp
-L Device:C C?
-U 1 1 5E0700A3
-P 5600 2350
-F 0 "C?" H 5715 2396 50  0000 L CNN
-F 1 "1u" H 5715 2305 50  0000 L CNN
-F 2 "" H 5638 2200 50  0001 C CNN
-F 3 "~" H 5600 2350 50  0001 C CNN
-	1    5600 2350
-	1    0    0    -1  
+L Connector:Conn_01x03_Female J5
+U 1 1 5E642718
+P 10150 3350
+F 0 "J5" H 10042 3025 50  0000 C CNN
+F 1 "Conn_01x03_Female" H 10042 3116 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 10150 3350 50  0001 C CNN
+F 3 "~" H 10150 3350 50  0001 C CNN
+	1    10150 3350
+	1    0    0    1   
 $EndComp
 $Comp
-L Device:C C?
-U 1 1 5E0708EB
-P 6450 2350
-F 0 "C?" H 6565 2396 50  0000 L CNN
-F 1 "1u" H 6565 2305 50  0000 L CNN
-F 2 "" H 6488 2200 50  0001 C CNN
-F 3 "~" H 6450 2350 50  0001 C CNN
-	1    6450 2350
-	1    0    0    -1  
+L Connector:Conn_01x03_Female J6
+U 1 1 5E642DF1
+P 10150 4950
+F 0 "J6" H 10042 4625 50  0000 C CNN
+F 1 "Conn_01x03_Female" H 10042 4716 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 10150 4950 50  0001 C CNN
+F 3 "~" H 10150 4950 50  0001 C CNN
+	1    10150 4950
+	1    0    0    1   
 $EndComp
-$Comp
-L Device:C C?
-U 1 1 5E0710A6
-P 5600 3100
-F 0 "C?" H 5715 3146 50  0000 L CNN
-F 1 "1u" H 5715 3055 50  0000 L CNN
-F 2 "" H 5638 2950 50  0001 C CNN
-F 3 "~" H 5600 3100 50  0001 C CNN
-	1    5600 3100
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5E071846
-P 6450 3100
-F 0 "C?" H 6565 3146 50  0000 L CNN
-F 1 "1u" H 6565 3055 50  0000 L CNN
-F 2 "" H 6488 2950 50  0001 C CNN
-F 3 "~" H 6450 3100 50  0001 C CNN
-	1    6450 3100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6100 2500 5600 2500
-Wire Wire Line
-	5800 2200 5600 2200
-Wire Wire Line
-	6400 2200 6450 2200
-Wire Wire Line
-	6100 2500 6450 2500
-Connection ~ 6100 2500
-Wire Wire Line
-	6100 3250 6450 3250
-Wire Wire Line
-	6450 2950 6400 2950
-Wire Wire Line
-	5800 2950 5600 2950
-Wire Wire Line
-	5600 3250 6100 3250
-Connection ~ 6100 3250
-$Comp
-L Device:C C?
-U 1 1 5E077C82
-P 5550 1200
-F 0 "C?" H 5665 1246 50  0000 L CNN
-F 1 "1u" H 5665 1155 50  0000 L CNN
-F 2 "" H 5588 1050 50  0001 C CNN
-F 3 "~" H 5550 1200 50  0001 C CNN
-	1    5550 1200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5750 1350 5750 1050
-Wire Wire Line
-	5550 1050 5750 1050
-Connection ~ 5750 1050
-Wire Wire Line
-	5550 1350 5550 1550
-Wire Wire Line
-	5550 1550 6150 1550
-$Comp
-L Device:R R?
-U 1 1 5E07FEE2
-P 7250 1400
-F 0 "R?" H 7320 1446 50  0000 L CNN
-F 1 "R" H 7320 1355 50  0000 L CNN
-F 2 "" V 7180 1400 50  0001 C CNN
-F 3 "~" H 7250 1400 50  0001 C CNN
-	1    7250 1400
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R?
-U 1 1 5E081B9F
-P 6950 1200
-F 0 "R?" H 7020 1246 50  0000 L CNN
-F 1 "R" H 7020 1155 50  0000 L CNN
-F 2 "" V 6880 1200 50  0001 C CNN
-F 3 "~" H 6950 1200 50  0001 C CNN
-	1    6950 1200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5E082C5F
-P 6700 1400
-F 0 "C?" H 6815 1446 50  0000 L CNN
-F 1 "10n" H 6815 1355 50  0000 L CNN
-F 2 "" H 6738 1250 50  0001 C CNN
-F 3 "~" H 6700 1400 50  0001 C CNN
-	1    6700 1400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6700 1250 6550 1250
-Wire Wire Line
-	6550 1250 6550 1350
-Wire Wire Line
-	6700 1550 6150 1550
-Connection ~ 6150 1550
-Wire Wire Line
-	7250 1250 7150 1250
-Wire Wire Line
-	7150 1250 7150 1350
-Wire Wire Line
-	7150 1350 6950 1350
-Wire Wire Line
-	6950 1350 6850 1350
-Wire Wire Line
-	6850 1350 6850 1150
-Wire Wire Line
-	6850 1150 6550 1150
-Connection ~ 6950 1350
-Wire Wire Line
-	6950 1050 6550 1050
-Wire Wire Line
-	7250 1550 6700 1550
-Connection ~ 6700 1550
-$Comp
-L Device:C C?
-U 1 1 5E08FCEA
-P 7500 1250
-F 0 "C?" H 7615 1296 50  0000 L CNN
-F 1 "4u7" H 7615 1205 50  0000 L CNN
-F 2 "" H 7538 1100 50  0001 C CNN
-F 3 "~" H 7500 1250 50  0001 C CNN
-	1    7500 1250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6950 1050 7500 1050
-Wire Wire Line
-	7500 1050 7500 1100
-Connection ~ 6950 1050
-Wire Wire Line
-	7500 1400 7500 1550
-Wire Wire Line
-	7500 1550 7250 1550
-Connection ~ 7250 1550
-Text Notes 7350 1050 0    50   ~ 0
-12V
-Text Notes 1500 1150 0    50   ~ 0
-28V
-Text Notes 3200 1150 0    50   ~ 0
-15V
-$Comp
-L power:+15V #PWR?
-U 1 1 5E09AECD
-P 4150 1100
-F 0 "#PWR?" H 4150 950 50  0001 C CNN
-F 1 "+15V" H 4165 1273 50  0000 C CNN
-F 2 "" H 4150 1100 50  0001 C CNN
-F 3 "" H 4150 1100 50  0001 C CNN
-	1    4150 1100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4150 1100 4150 1150
-Connection ~ 4150 1150
-Wire Wire Line
-	4150 1450 4150 1500
-Connection ~ 4150 1450
-$Comp
-L power:+3.3V #PWR?
-U 1 1 5E0A1F14
-P 3950 3300
-F 0 "#PWR?" H 3950 3150 50  0001 C CNN
-F 1 "+3.3V" H 3965 3473 50  0000 C CNN
-F 2 "" H 3950 3300 50  0001 C CNN
-F 3 "" H 3950 3300 50  0001 C CNN
-	1    3950 3300
-	1    0    0    -1  
-$EndComp
-$Comp
-L agg-kicad:XTAL Y?
-U 1 1 5E0AE65A
-P 6400 4900
-F 0 "Y?" H 6450 5095 50  0000 C CNN
-F 1 "XTAL" H 6450 5004 50  0000 C CNN
-F 2 "" H 6400 4900 50  0001 C CNN
-F 3 "" H 6400 4900 50  0001 C CNN
-	1    6400 4900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5E0B04BC
-P 3450 2950
-F 0 "C?" H 3565 2996 50  0000 L CNN
-F 1 "100n" H 3565 2905 50  0000 L CNN
-F 2 "" H 3488 2800 50  0001 C CNN
-F 3 "~" H 3450 2950 50  0001 C CNN
-	1    3450 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C C?
-U 1 1 5E0B0C72
-P 3850 2950
-F 0 "C?" H 3965 2996 50  0000 L CNN
-F 1 "100n" H 3965 2905 50  0000 L CNN
-F 2 "" H 3888 2800 50  0001 C CNN
-F 3 "~" H 3850 2950 50  0001 C CNN
-	1    3850 2950
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR?
-U 1 1 5E0D32C2
-P 3550 3400
-F 0 "#PWR?" H 3550 3250 50  0001 C CNN
-F 1 "+5V" H 3565 3573 50  0000 C CNN
-F 2 "" H 3550 3400 50  0001 C CNN
-F 3 "" H 3550 3400 50  0001 C CNN
-	1    3550 3400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3450 2800 3300 2800
-Wire Wire Line
-	3200 2700 3200 2800
-Connection ~ 3200 2800
-Wire Wire Line
-	3200 2900 3300 2900
-Wire Wire Line
-	3300 2900 3300 3100
-Wire Wire Line
-	3300 3100 3450 3100
-Wire Wire Line
-	3850 2800 3450 2800
-Connection ~ 3450 2800
-Wire Wire Line
-	3200 3000 3250 3000
-Wire Wire Line
-	3250 3000 3250 3150
-Wire Wire Line
-	3250 3150 3550 3150
-Wire Wire Line
-	3550 3150 3550 3100
-Wire Wire Line
-	3550 3100 3850 3100
-Wire Wire Line
-	3850 3100 3850 3300
-Wire Wire Line
-	3850 3300 3950 3300
-Connection ~ 3850 3100
-Wire Wire Line
-	3550 3400 3450 3400
-Wire Wire Line
-	3450 3400 3450 3100
-Connection ~ 3450 3100
-Wire Wire Line
-	3200 2600 3300 2600
-Wire Wire Line
-	3300 2600 3300 2800
-Connection ~ 3300 2800
-Wire Wire Line
-	3300 2800 3200 2800
-Wire Wire Line
-	1700 2500 1700 3000
-Wire Wire Line
-	2000 2600 2000 2900
-Wire Wire Line
-	2400 2900 2000 2900
-Connection ~ 2000 2900
-Wire Wire Line
-	2000 2900 2000 3250
-Wire Wire Line
-	2400 3000 1700 3000
-Connection ~ 1700 3000
-Wire Wire Line
-	1700 3000 1700 3250
-Connection ~ 1700 3250
-Connection ~ 2000 3250
-Wire Wire Line
-	2000 3250 2000 3450
-Wire Wire Line
-	1700 3250 1700 3350
-Wire Notes Line
-	900  700  900  1800
-Wire Notes Line
-	900  1800 4450 1800
-Wire Notes Line
-	4450 1800 4450 700 
-Wire Notes Line
-	4450 700  900  700 
-Text Notes 2100 850  0    55   ~ 11
-28VDC -> 15VDC Power Input
-Text Notes 1000 1350 0    50   ~ 0
-28V Powerpole
-Text GLabel 3500 2200 2    50   Input ~ 0
-CAN_TXD
-Text GLabel 3500 2350 2    50   Input ~ 0
-CAN_RXD
-Wire Wire Line
-	3500 2350 2350 2350
-Wire Wire Line
-	2350 2350 2350 2700
-Wire Wire Line
-	2350 2700 2400 2700
-Wire Wire Line
-	3500 2200 2250 2200
-Wire Wire Line
-	2250 2200 2250 2800
-Wire Wire Line
-	2250 2800 2400 2800
 $EndSCHEMATC
