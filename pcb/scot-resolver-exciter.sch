@@ -105,9 +105,9 @@ F 3 "~" H 8650 2000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text HLabel 10050 2900 2    50   Input ~ 0
-EXC+_OUTPUT
-Text HLabel 10050 3100 2    50   Input ~ 0
 EXC-_OUTPUT
+Text HLabel 10050 3100 2    50   Input ~ 0
+EXC+_OUTPUT
 $Comp
 L Device:C C13
 U 1 1 5E0BCC9C
@@ -427,9 +427,9 @@ Wire Wire Line
 Wire Wire Line
 	3700 3750 3900 3750
 Text HLabel 3700 3350 0    50   Input ~ 0
-AD2S1210_EXC+
-Text HLabel 3700 4500 0    50   Input ~ 0
 AD2S1210_EXC-
+Text HLabel 3700 4500 0    50   Input ~ 0
+AD2S1210_EXC+
 Wire Wire Line
 	4100 4500 3700 4500
 Wire Wire Line
