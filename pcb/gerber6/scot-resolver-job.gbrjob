@@ -7,7 +7,7 @@
       "Application": "Pcbnew",
       "Version":     "5.1.5-52549c5~84~ubuntu18.04.1"
     },
-    "CreationDate":  "2020-02-19T21:11:28+00:00"
+    "CreationDate":  "2020-02-19T21:22:06+00:00"
   },
   "GeneralSpecs":
   {
@@ -40,47 +40,47 @@
   "FilesAttributes":
   [
     {
-      "Path":  "scot-resolver-F_Cu.gtl",
+      "Path":  "scot-resolver-F_Cu.gbr",
       "FileFunction":  "Copper,L1,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "scot-resolver-B_Cu.gbl",
+      "Path":  "scot-resolver-B_Cu.gbr",
       "FileFunction":  "Copper,L2,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "scot-resolver-F_Paste.gtp",
+      "Path":  "scot-resolver-F_Paste.gbr",
       "FileFunction":  "SolderPaste,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "scot-resolver-B_Paste.gbp",
+      "Path":  "scot-resolver-B_Paste.gbr",
       "FileFunction":  "SolderPaste,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "scot-resolver-F_SilkS.gto",
+      "Path":  "scot-resolver-F_SilkS.gbr",
       "FileFunction":  "Legend,Top",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "scot-resolver-B_SilkS.gbo",
+      "Path":  "scot-resolver-B_SilkS.gbr",
       "FileFunction":  "Legend,Bot",
       "FilePolarity":  "Positive"
     },
     {
-      "Path":  "scot-resolver-F_Mask.gts",
+      "Path":  "scot-resolver-F_Mask.gbr",
       "FileFunction":  "SolderMask,Top",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "scot-resolver-B_Mask.gbs",
+      "Path":  "scot-resolver-B_Mask.gbr",
       "FileFunction":  "SolderMask,Bot",
       "FilePolarity":  "Negative"
     },
     {
-      "Path":  "scot-resolver-Edge_Cuts.gm1",
+      "Path":  "scot-resolver-Edge_Cuts.gbr",
       "FileFunction":  "Profile",
       "FilePolarity":  "Positive"
     }
