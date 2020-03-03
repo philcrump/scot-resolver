@@ -1,0 +1,88 @@
+3x 2-pole Terminal Block    571-282834-2
+3x 3-pole Terminal Block    571-2828343
+
+1x Exciter {
+    1x AD8692ARMZ      Exciter Opamp    584-AD8692ARMZ-R7
+    1x AD8397          Exciter Driver  584-AD8397ARZ-R7
+
+    2x 1n 0402
+    4x 4n7 0402
+    1x 10u 0603 (5V)
+    1x 10u 0603 (12V)
+    3x 100n 0402
+    2x 100p 0402
+
+    4x 20K 0402
+    2x 6K2 0402
+    2x 820R 0402
+    2x 620R 0402
+    2x 910R 0402
+}
+
+
+4x receiver {
+    1x AD8692ARMZ      Opamp    584-AD8692ARMZ-R7
+
+    1x 1u 0603 
+    2x 100n 0402
+    1x 1n2 0402
+    1x 220p 0402
+    1x 6n8 0402
+
+    1x 27K 0402
+    1x 22K 0402
+    1x 4K7 0402
+    1x 1K2 0402
+    1x 2K 0402
+}
+
+1x MCU & Controller {
+    1x STM32F042K6T7  STM32  511-STM32F042K6T7
+    1x Abracon 8MHz XTAL        815-M8AIG-8-1ZT
+
+    1x AD2S1210 D-grade, -40_+85    584-AD2S1210BSTZ
+    1x 8.192MHz XTAL        717-9C-8.192MAAJ-T
+
+    1x SWD Header 200-FTSH10501FDK
+
+    9x 100n 0402
+    1x 10n 0402
+    1x 10u 0603 (2.5V)
+
+    2x 12p 0402
+    2x 18p 0402
+
+
+    1x 10K 0402
+    3x Blue LED 3.2V 20mA 140mcd 645-598-8291-107F
+    3x 7R5 0805
+    2x RED LED 2.2V 20mA 1100mcd 604-APTR3216SECKJ3
+    2x 60R 0805
+}
+
+1x CAN TXRX {
+    1x MCP2562 579-MCP2562-E/MF
+    2x 100n 0402
+    1x 120R 0805
+}
+
+1x Power Supply {
+    1x Diode (not perfect)  579-MCP2562-E/MF
+    1x TSR-1-24150  495-TSR-1-24150
+    3x MCP1703A 5V  579-MCP1703AT5002EDB
+    1x MCP1703A 3.3V    579-MCP1703AT3302EDB
+    1x LT1762 Variable Voltage 584-LT1762EMS8#PBF
+
+    1x 2u2 0603 (28V)
+    2x 10u 1210 (15V)
+    1x 4u7 1210 (12V)
+    10x 1u 0603 (15V)
+    1x 10n 0402
+
+    1x 62K 0603
+    1x 6.2K 0603 (check similar values, Vout = 1.22(1+62K/6.2K) = 13.42)
+    1x Green LED 3.3V @ 20mA 550mcd 604-APTR3216ZGCK
+    1x 620R 0805 (for LED @ 15V)
+
+    4x Ferrite 0805  652-MH2029-601Y
+}
