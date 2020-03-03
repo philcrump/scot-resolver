@@ -315,8 +315,8 @@ Wire Wire Line
 	6650 1850 6650 2850
 Wire Wire Line
 	6650 2850 6300 2850
-Text Notes 2100 1300 2    50   ~ 0
-Orange & Block Powerpole Connector
+Text Notes 1800 1300 2    50   ~ 0
+0.1" Terminal Block
 Text Notes 10500 1950 2    50   ~ 0
 Resolver Exciter Coil
 Text Notes 10750 3650 2    50   ~ 0
@@ -428,4 +428,14 @@ F 3 "~" H 5550 4950 50  0001 C CNN
 	1    5550 4950
 	1    0    0    -1  
 $EndComp
+Text Notes 1500 2850 2    50   ~ 0
+0.1" Terminal Block
+Text Notes 1500 3700 2    50   ~ 0
+0.1" Terminal Block
+Text Notes 11000 1700 2    50   ~ 0
+0.1" Terminal Block
+Text Notes 11000 3400 2    50   ~ 0
+0.1" Terminal Block
+Text Notes 11000 5000 2    50   ~ 0
+0.1" Terminal Block
 $EndSCHEMATC
