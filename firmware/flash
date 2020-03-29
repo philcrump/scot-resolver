@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+source_dir="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"
+cd "$source_dir"
+
+COLOUR_GREEN='\033[0;32m'
+COLOUR_YELLOW='\033[1;33m'
+COLOUR_PURPLE='\033[0;35m'
+COLOUR_RED='\033[0;31m'
+COLOUR_OFF='\033[0;00m'
+CLEAR_LINE='\033[2K'
+
+_ERROR_="${COLOUR_RED}[ERROR]${COLOUR_OFF}"
+_INFO_="${COLOUR_PURPLE}[INFO]${COLOUR_OFF}"
+_DEBUG_="${COLOUR_YELLOW}[DEBUG]${COLOUR_OFF}"
+
+flashtool="arm-none-eabi-gdb"
+programmer=false
+
+locate_black_magic() {
+  probe="`ls 2>/dev/null -Ub1 -- /dev/serial/by-id/usb-Black_Sphere_Technologies_Black_Magic_Probe_*-if00 | head -n 1`"
+  if ! [ -z "$probe" ]
+  then
+    echo "$probe"
+    return 0
+  fi
+  return 1
+}
+
+flash_target() {
+	$flashtool -q --batch \
+  -ex 'file '$binary                          \
+  -ex 'target extended-remote '$programmer    \
+  -ex 'monitor swdp_scan'                     \
+  -ex 'attach 1'                              \
+  -ex 'load '$binary                          \
+  -ex 'compare-sections';
+}
+
+binary="${1}.elf"
+
+if [ "$binary" == ".elf" ];
+then
+  binary="$(ls -t builds/*.elf | head -1)"
+  if [[ ! -f $binary ]]; then
+    echo -e "$_ERROR_ No suitable builds found!"
+    exit 1
+  fi
+  echo -e "$_INFO_ Most recent build selected"
+else
+  if [[ ! -f $binary ]]; then
+    echo -e "$_ERROR_ Binary $binary not found!"
+    exit 1
+  fi
+fi
+
+echo -e "$_INFO_  - File: ${binary}"
+
+if [ `date "+%Y-%m-%d"` == `date -r ${binary} "+%Y-%m-%d"` ];
+then
+  echo -e "$_INFO_  - Compiled today `date -r ${binary} "+%H:%M:%S"`";
+else
+  echo -e "$_INFO_  - Compiled `date -r ${binary} "+%Y-%m-%d %H:%M:%S"`";
+fi
+
+if programmer="`locate_black_magic`";
+then
+	flash_target
+else
+	binary=builds/"$(basename "$binary" .elf).bin"
+	echo -e "$_INFO_ Using bin file with st-flash: ${binary}"
+	st-flash write $binary 0x8000000
+fi
