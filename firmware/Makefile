@@ -125,6 +125,10 @@ LDSCRIPT= $(STARTUPLD)/STM32F042x6.ld
 CSRC = $(ALLCSRC) \
        $(BOARDSRC) \
        $(TESTSRC) \
+       ad2s1210.c \
+       can.c \
+       watchdog.c \
+       system.c \
        main.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
