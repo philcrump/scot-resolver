@@ -9,7 +9,7 @@ static const WDGConfig wdg_cfg = {
 
 static bool wdg_initialised = false;
 static uint32_t mask = WATCHDOG_MASK;
-static uint8_t fed = 0;
+static uint32_t fed = 0;
 
 void watchdog_init(void)
 {

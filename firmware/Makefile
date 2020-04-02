@@ -150,6 +150,11 @@ CWARN = -Wall -Wextra -Wundef -Wstrict-prototypes
 # Define C++ warning options here.
 CPPWARN = -Wall -Wextra -Wundef
 
+ifneq ($(WERROR),)
+  CWARN += -Werror
+  CPPWARN += -Werror
+endif
+
 #
 # Project, target, sources and paths
 ##############################################################################

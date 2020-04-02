@@ -14,28 +14,89 @@ _ERROR_="${COLOUR_RED}[ERROR]${COLOUR_OFF}"
 _INFO_="${COLOUR_PURPLE}[INFO]${COLOUR_OFF}"
 _DEBUG_="${COLOUR_YELLOW}[DEBUG]${COLOUR_OFF}"
 
+opt_sound=false;
+opt_power=false;
+
 flashtool="arm-none-eabi-gdb"
 programmer=false
 
 locate_black_magic() {
-  probe="`ls 2>/dev/null -Ub1 -- /dev/serial/by-id/usb-Black_Sphere_Technologies_Black_Magic_Probe_*-if00 | head -n 1`"
-  if ! [ -z "$probe" ]
+  probe="`ls 2>/dev/null -Ub1 -- /dev/serial/by-id/usb-Black_Sphere_Technologies_Black_Magic_Probe_*-if00 | head -n 1`";
+  if ! [ -z "$probe" ];
   then
-    echo "$probe"
-    return 0
+    echo "$probe";
+    return 0;
   fi
-  return 1
+  return 1;
 }
 
 flash_target() {
-	$flashtool -q --batch \
-  -ex 'file '$binary                          \
-  -ex 'target extended-remote '$programmer    \
-  -ex 'monitor swdp_scan'                     \
-  -ex 'attach 1'                              \
-  -ex 'load '$binary                          \
-  -ex 'compare-sections';
+  programmer_power="disable"
+  if $opt_power; then
+    programmer_power="enable";
+  fi
+
+	flash_cmd="$flashtool -q --batch \
+    -ex 'file '$binary                          \
+    -ex 'target extended-remote '$programmer    \
+    -ex 'monitor tpwr '$programmer_power        \
+    -ex 'monitor swdp_scan'                     \
+    -ex 'attach 1'                              \
+    -ex 'load '$binary                          \
+    -ex 'compare-sections'";
+
+  flash_out=`eval $flash_cmd 2>&1`;
+  echo ${flash_out} | grep -vqE 'warning|fail|Error|MIS-MATCHED';
+  if [[ $? -eq 0 ]]; then
+    printf "${flash_out}\n"
+    return 0;
+  else
+    printf "${flash_out}\n"
+    return 1;
+  fi
 }
+
+playsound() {
+  if hash aplay 2>/dev/null
+  then
+    aplay -q $@;
+  elif hash play 2>/dev/null
+  then
+    play -q $@;
+  else
+    printf "$_ERROR_ No WAV player detected\n";
+  fi
+}
+
+check_linux_serial_permissions() {
+  # For Linux - check user has permissions to the serial port (required for Black Magic Probe)
+  if [ ${host_platform} == "linux" ]; then
+    groups $USER | grep -q 'dialout'
+    if [[ ! $? -eq 0 ]]; then
+        printf "$_ERROR_ Current user is not in dialout group, you'll need this to use the programmer!\n";
+        printf " * eg. for Ubuntu/Debian: 'sudo gpasswd --add "$USER" dialout'\n";
+        exit 1
+    fi
+  fi
+}
+
+## Read Flags
+OPTIND=1
+while getopts ":SP" opt; do
+  case "$opt" in
+    S) # Sound
+      opt_sound=true
+      ;;
+    P) # Sound
+      opt_power=true
+      ;;
+    ?) # Illegal Option
+      echo -e "$_ERROR_ Illegal option '$OPTARG'"
+      exit 3
+      ;;
+  esac
+done
+for i in `seq 2 $OPTIND`; do shift; done
 
 binary="${1}.elf"
 
@@ -65,7 +126,15 @@ fi
 
 if programmer="`locate_black_magic`";
 then
-	flash_target
+  printf "$_INFO_ Black Magic Probe found. Flashing..\n";
+	flash_target \
+  && {
+    printf "$_INFO_$COLOUR_GREEN Device Flash successful$COLOUR_OFF\n"
+    if $opt_sound; then playsound tools/flash.wav; fi
+  } || {
+    printf "$_ERROR_$COLOUR_RED Device Flash Failed$COLOUR_OFF\n" \
+    && exit 1
+  }
 else
 	binary=builds/"$(basename "$binary" .elf).bin"
 	echo -e "$_INFO_ Using bin file with st-flash: ${binary}"

@@ -16,6 +16,8 @@ _DEBUG_="${COLOUR_YELLOW}[DEBUG]${COLOUR_OFF}"
 
 opt_flash=false
 opt_debug=false
+opt_asm=false
+opt_sound=false
 
 hyphenjoin() {
   str=""
@@ -71,15 +73,29 @@ size_binary() {
   printf "   - Data:   %   6s B\n" ${size_fdata};
 }
 
+asmdump() {
+  arm-none-eabi-objdump -DSlx ${1} > ${1}.asm
+  printf "$_INFO_$COLOUR_GREEN Extracted assembly$COLOUR_OFF [${1}.asm]\n"
+}
+
 ## Read Flags
 OPTIND=1
-while getopts ":DF" opt; do
+while getopts ":DFmwS" opt; do
   case "$opt" in
     D) # Debug
       opt_debug=true
       ;;
     F) # Flash
       opt_flash=true
+      ;;
+    m) # ASM
+      opt_asm=true
+      ;;
+    w) # Werror
+      opt_werror=true
+      ;;
+    S) # Werror
+      opt_sound=true
       ;;
     ?) # Illegal Option
       echo -e "$_ERROR_ Illegal option '$OPTARG'"
@@ -94,18 +110,32 @@ filename="$(hyphenjoin "resolver" "${githash_var}")"
 
 flags="TARGET_FILENAME=\"${filename}\" GITVERSION=\"${githash_var}\""
 
-printf "$_INFO_ Using GCC version: `gccversion`\n";
+printf "$_INFO_ Using ARM-GCC version: `gccversion`\n";
 printf "$_INFO_ Firmware version: ${githash_var}\n";
+
+if $opt_werror; then
+  printf "$_INFO_ Compiler treat Warnings as Errors:$COLOUR_RED ON $COLOUR_OFF\n";
+  flags+=" WERROR=1";
+fi
+
 printf "$_INFO_ Compiling..\n";
 make ${flags} \
 && {
-  printf "$_INFO_$COLOUR_GREEN Compile OK$COLOUR_OFF\n"
-  size_binary "builds/${filename}.elf"
-  if $opt_debug;
-  then
-    ./debug "builds/${filename}";
-  elif $opt_flash;
-  then
-    ./flash "builds/${filename}";
-  fi
+  printf "$_INFO_$COLOUR_GREEN Build successful$COLOUR_OFF [builds/${filename}.elf]\n"
+} || {
+  printf "$_ERROR_$COLOUR_RED There were errors in the build process$COLOUR_OFF" \
+  && exit 1
 }
+size_binary "builds/${filename}.elf"
+
+if $opt_asm; then asmdump "builds/${filename}.elf"; fi
+
+if $opt_debug;
+then
+  ./debug "builds/${filename}";
+elif $opt_flash;
+then
+  fflags=""
+  if $opt_sound; then fflags+=" -S"; fi
+  ./flash ${fflags} "builds/${filename}";
+fi
