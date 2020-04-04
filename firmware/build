@@ -18,6 +18,7 @@ opt_verbose=false
 opt_flash=false
 opt_debug=false
 opt_asm=false
+opt_werror=false
 opt_sound=false
 
 hyphenjoin() {
