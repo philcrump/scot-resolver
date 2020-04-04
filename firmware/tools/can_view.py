@@ -78,7 +78,8 @@ while(1):
          % (position_degrees, position_int, message.data[2]))
     elif message.arbitration_id == 0x13 and message.dlc == 8:
         # Sysinfo Message
-        firmware_version = (message.data[0] << 24) | (message.data[1] << 16) | (message.data[2] << 8) | message.data[3];
+        firmware_version = (message.data[0] << 20) | (message.data[1] << 12) | (message.data[2] << 4) | (message.data[3] & 0xF0) >> 4;
+        firmware_dirty = True if (message.data[3] & 0x0F) == 0x0F else False;
         temperature = message.data[4];
         if temperature > 60:
             temperature_colour = bcolors.WARNING
@@ -95,8 +96,8 @@ while(1):
         else:
             can_esr_tx_colour = bcolors.OKGREEN
 
-        print("FW: %08X, %sTemperature: %+3d°C%s, %sCAN RX Errors: %3d%s, %sCAN TX Errors: %3d%s" \
-         % (firmware_version, \
+        print("FW: %07x%s, %sTemperature: %+3d°C%s, %sCAN RX Errors: %3d%s, %sCAN TX Errors: %3d%s" \
+         % (firmware_version, "-dirty" if firmware_dirty else "-clean", \
             temperature_colour, temperature, bcolors.OFF, \
             can_esr_rx_colour, can_esr_rx, bcolors.OFF, \
             can_esr_tx_colour, can_esr_tx, bcolors.OFF))

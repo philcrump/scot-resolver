@@ -14,6 +14,7 @@ _ERROR_="${COLOUR_RED}[ERROR]${COLOUR_OFF}"
 _INFO_="${COLOUR_PURPLE}[INFO]${COLOUR_OFF}"
 _DEBUG_="${COLOUR_YELLOW}[DEBUG]${COLOUR_OFF}"
 
+opt_verbose=false
 opt_flash=false
 opt_debug=false
 opt_asm=false
@@ -40,10 +41,21 @@ gccversion() {
 githash() {
   githash="$(git describe --dirty --always)"
   # Mark as dirty if untracked files exist
-  if [ -z "$(echo "$githash" | grep "dirty")" ] && [ ! -z "$(git status --porcelain | grep "^??")" ]; then
-    githash="$githash-dirty"
+  if [ -z "$(echo "${githash}" | grep "dirty")" ] && [ ! -z "$(git status --porcelain | grep "^??")" ]; then
+    githash="${githash}-dirty"
   fi
   echo $githash
+}
+
+githash_x32() {
+  githash_x32="0x$(git describe --always)"
+  # Set lowest nibble to 0xf if dirty, 0x0 otherwise.
+  if [ ! -z "$(githash | grep "dirty")" ]; then
+    githash_x32="${githash_x32}f"
+  else
+    githash_x32="${githash_x32}0"
+  fi
+  echo $githash_x32
 }
 
 device_name="STM32F042K6"
@@ -80,8 +92,11 @@ asmdump() {
 
 ## Read Flags
 OPTIND=1
-while getopts ":DFmwS" opt; do
+while getopts ":vDFmwS" opt; do
   case "$opt" in
+    v) # Verbose
+      opt_verbose=true
+      ;;
     D) # Debug
       opt_debug=true
       ;;
@@ -108,10 +123,14 @@ for i in `seq 2 $OPTIND`; do shift; done
 githash_var=`githash`
 filename="$(hyphenjoin "resolver" "${githash_var}")"
 
-flags="TARGET_FILENAME=\"${filename}\" GITVERSION=\"${githash_var}\""
-
+flags="TARGET_FILENAME=\"${filename}\" GITVERSION=\"${githash_var}\" GITVERSION_X32=\"`githash_x32`\""
 printf "$_INFO_ Using ARM-GCC version: `gccversion`\n";
 printf "$_INFO_ Firmware version: ${githash_var}\n";
+
+if $opt_verbose; then
+  printf "$_INFO_ Compile Verbosely:$COLOUR_YELLOW ON $COLOUR_OFF\n";
+  flags+=" USE_VERBOSE_COMPILE=yes";
+fi
 
 if $opt_werror; then
   printf "$_INFO_ Compiler treat Warnings as Errors:$COLOUR_RED ON $COLOUR_OFF\n";
@@ -123,7 +142,7 @@ make ${flags} \
 && {
   printf "$_INFO_$COLOUR_GREEN Build successful$COLOUR_OFF [builds/${filename}.elf]\n"
 } || {
-  printf "$_ERROR_$COLOUR_RED There were errors in the build process$COLOUR_OFF" \
+  printf "$_ERROR_$COLOUR_RED There were errors in the build process$COLOUR_OFF\n" \
   && exit 1
 }
 size_binary "builds/${filename}.elf"

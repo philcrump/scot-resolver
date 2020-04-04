@@ -46,7 +46,7 @@ flash_target() {
     -ex 'compare-sections'";
 
   flash_out=`eval $flash_cmd 2>&1`;
-  echo ${flash_out} | grep -vqE 'warning|fail|Error|MIS-MATCHED';
+  echo ${flash_out} | grep -vqE 'warning|fail|Error|MIS-MATCHED|"monitor" command not supported by this target';
   if [[ $? -eq 0 ]]; then
     printf "${flash_out}\n"
     return 0;
@@ -136,7 +136,15 @@ then
     && exit 1
   }
 else
+  printf "$_INFO_ ${COLOUR_YELLOW}Black Magic Probe not found, trying ST-Link..${COLOUR_OFF}\n"
 	binary=builds/"$(basename "$binary" .elf).bin"
-	echo -e "$_INFO_ Using bin file with st-flash: ${binary}"
-	st-flash write $binary 0x8000000
+	printf "$_INFO_ Using bin file with st-flash: ${binary}\n"
+	st-flash write $binary 0x8000000 \
+  && {
+    printf "$_INFO_$COLOUR_GREEN Device Flash successful$COLOUR_OFF\n"
+    if $opt_sound; then playsound tools/flash.wav; fi
+  } || {
+    printf "$_ERROR_$COLOUR_RED Device Flash Failed$COLOUR_OFF\n" \
+    && exit 1
+  }
 fi

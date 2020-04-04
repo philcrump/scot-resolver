@@ -41,7 +41,7 @@ int main(void)
   while(true)
   {
     temperature = system_mcutemperature();
-    can_send_sysinfo(0x01020304, temperature);
+    can_send_sysinfo(GITVERSION_X32, temperature);
 
     chThdSleepMilliseconds(10*1000);
   }
