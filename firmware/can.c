@@ -1,5 +1,6 @@
 #include "main.h"
 
+#include <string.h>
 /*
   CAN_MCR_ABOM - Automatic Bus-Off Management
   CAN_MCR_AWUM - Automatic Wake-Up Management
@@ -21,9 +22,17 @@
 static bool can_initialised = false;
 
 static const CANConfig can_cfg = {
-  CAN_MCR_ABOM | CAN_MCR_AWUM | CAN_MCR_TXFP,
-  CAN_BTR_LBKM | CAN_BTR_SJW(1) | CAN_BTR_TS2(2) |
-  CAN_BTR_TS1(11) | CAN_BTR_BRP(2)
+  .mcr = CAN_MCR_TXFP | CAN_MCR_ABOM | CAN_MCR_AWUM,
+  .btr = CAN_BTR_LBKM | CAN_BTR_SJW(2) | CAN_BTR_TS2(2) | CAN_BTR_TS1(11) | CAN_BTR_BRP(2)
+};
+
+static const CANFilter can_filter = {
+  .filter = 1, // Number of filter bank to be programmed
+  .mode = 0, // 0 = mask, 1 = list
+  .scale = 0, // 0 = 16bits, 1 = 32bits
+  .assignment = 0, // (must be set to 0)
+  .register1 = 0x0010, // identifier 1
+  .register2 = 0x07F0 // mask if mask mode, identifier2 if list mode
 };
 
 void can_init(void)
@@ -33,7 +42,10 @@ void can_init(void)
         return;
     }
 
+    canSTM32SetFilters(&CAND1, 1, 1, &can_filter);
+
     canStart(&CAND1, &can_cfg);
+
     can_initialised = true;
 }
 
@@ -86,6 +98,22 @@ void can_send_sysinfo(const uint32_t gitversion, const int8_t temperature_degree
     canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &txmsg, TIME_IMMEDIATE);
 }
 
+static const uint8_t can_command_reset[5] = { 'R', 'E', 'S', 'E', 'T'};
+static void can_rx_process(CANRxFrame *message)
+{
+  if(message->IDE == CAN_IDE_STD && message->SID == 0x01A)
+  {
+    if(message->DLC == sizeof(can_command_reset)
+      && 0 == memcmp(can_command_reset, message->data8, sizeof(can_command_reset)))
+    {
+      /* Reset Command! */
+      sdWriteString(&SD1, "Received Reset Command!\r\n");
+      //chThdSleepMilliseconds(50);
+      //system_reset();
+    }
+  }
+}
+
 THD_FUNCTION(can_rx_service_thread, arg)
 {
     (void)arg;
@@ -102,7 +130,7 @@ THD_FUNCTION(can_rx_service_thread, arg)
         if(result == MSG_OK)
         {
             /* Message Received */
-            chThdSleepMilliseconds(100);
+            can_rx_process(&rxmsg);
         }
 
         watchdog_feed(WATCHDOG_DOG_CANRX);

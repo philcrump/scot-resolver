@@ -58,46 +58,51 @@ class PCANBus(object):
         self.notifier.stop()
         self.bus.shutdown()
 
-pcan = PCANBus()
-#msg = Message(arbitration_id=pcan.RX_PDO + 50, is_extended_id=False, data=[0x4F, 0x00])
-#pcan.send_message(msg)
-while(1):
-    # https://python-can.readthedocs.io/en/master/message.html#can.Message.data
-    message = pcan.receive()
-    if message.arbitration_id == 0x10 and message.dlc == 2:
-        # Position Message
-        position_int = (message.data[0] << 8) | message.data[1];
-        position_degrees = position_int * (360.0 / 65536.0);
-        print(f"Position: {bcolors.BOLD}%6.2f°{bcolors.OFF} (0x%04X)" \
-         % (position_degrees, position_int))
-    elif message.arbitration_id == 0x11 and message.dlc == 3:
-        # Position with Fault Message
-        position_int = (message.data[0] << 8) | message.data[1];
-        position_degrees = position_int * (360.0 / 65536.0);
-        print(f"Position: {bcolors.BOLD}%6.2f°{bcolors.OFF} (0x%04X) {bcolors.WARNING}FAULT: 0x%02X{bcolors.OFF}" \
-         % (position_degrees, position_int, message.data[2]))
-    elif message.arbitration_id == 0x13 and message.dlc == 8:
-        # Sysinfo Message
-        firmware_version = (message.data[0] << 20) | (message.data[1] << 12) | (message.data[2] << 4) | (message.data[3] & 0xF0) >> 4;
-        firmware_dirty = True if (message.data[3] & 0x0F) == 0x0F else False;
-        temperature = message.data[4];
-        if temperature > 60:
-            temperature_colour = bcolors.WARNING
-        else:
-            temperature_colour = bcolors.OKGREEN
-        can_esr_rx = message.data[6];
-        if can_esr_rx > 0:
-            can_esr_rx_colour = bcolors.WARNING
-        else:
-            can_esr_rx_colour = bcolors.OKGREEN
-        can_esr_tx = message.data[7];
-        if can_esr_tx > 0:
-            can_esr_tx_colour = bcolors.WARNING
-        else:
-            can_esr_tx_colour = bcolors.OKGREEN
+try:
+    pcan = PCANBus()
+    #msg = Message(arbitration_id=pcan.RX_PDO + 50, is_extended_id=False, data=[0x4F, 0x00])
+    #pcan.send_message(msg)
+    while(1):
+        # https://python-can.readthedocs.io/en/master/message.html#can.Message.data
+        message = pcan.receive()
+        if message != None:
+            if message.arbitration_id == 0x10 and message.dlc == 2:
+                # Position Message
+                position_int = (message.data[0] << 8) | message.data[1];
+                position_degrees = position_int * (360.0 / 65536.0);
+                print(f"Position: {bcolors.BOLD}%6.2f°{bcolors.OFF} (0x%04X)" \
+                 % (position_degrees, position_int))
+            elif message.arbitration_id == 0x11 and message.dlc == 3:
+                # Position with Fault Message
+                position_int = (message.data[0] << 8) | message.data[1];
+                position_degrees = position_int * (360.0 / 65536.0);
+                print(f"Position: {bcolors.BOLD}%6.2f°{bcolors.OFF} (0x%04X) {bcolors.WARNING}FAULT: 0x%02X{bcolors.OFF}" \
+                 % (position_degrees, position_int, message.data[2]))
+            elif message.arbitration_id == 0x13 and message.dlc == 8:
+                # Sysinfo Message
+                firmware_version = (message.data[0] << 20) | (message.data[1] << 12) | (message.data[2] << 4) | (message.data[3] & 0xF0) >> 4;
+                firmware_dirty = True if (message.data[3] & 0x0F) == 0x0F else False;
+                temperature = message.data[4];
+                if temperature > 60:
+                    temperature_colour = bcolors.WARNING
+                else:
+                    temperature_colour = bcolors.OKGREEN
+                can_esr_rx = message.data[6];
+                if can_esr_rx > 0:
+                    can_esr_rx_colour = bcolors.WARNING
+                else:
+                    can_esr_rx_colour = bcolors.OKGREEN
+                can_esr_tx = message.data[7];
+                if can_esr_tx > 0:
+                    can_esr_tx_colour = bcolors.WARNING
+                else:
+                    can_esr_tx_colour = bcolors.OKGREEN
 
-        print("FW: %07x%s, %sTemperature: %+3d°C%s, %sCAN RX Errors: %3d%s, %sCAN TX Errors: %3d%s" \
-         % (firmware_version, "-dirty" if firmware_dirty else "-clean", \
-            temperature_colour, temperature, bcolors.OFF, \
-            can_esr_rx_colour, can_esr_rx, bcolors.OFF, \
-            can_esr_tx_colour, can_esr_tx, bcolors.OFF))
+                print("FW: %07x%s, %sTemperature: %+3d°C%s, %sCAN RX Errors: %3d%s, %sCAN TX Errors: %3d%s" \
+                 % (firmware_version, "-dirty" if firmware_dirty else "-clean", \
+                    temperature_colour, temperature, bcolors.OFF, \
+                    can_esr_rx_colour, can_esr_rx, bcolors.OFF, \
+                    can_esr_tx_colour, can_esr_tx, bcolors.OFF))
+except OSError as e:
+    print("Error: %s" % (e))
+    sys.exit(0)

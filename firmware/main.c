@@ -37,12 +37,17 @@ int main(void)
   chThdCreateStatic(can_rx_service_wa, sizeof(can_rx_service_wa), NORMALPRIO, can_rx_service_thread, NULL);
   chThdCreateStatic(ad2s1210_service_wa, sizeof(ad2s1210_service_wa), NORMALPRIO, ad2s1210_service_thread, NULL);
 
-  int8_t temperature;
+  systime_t start, end;
   while(true)
   {
-    temperature = system_mcutemperature();
-    can_send_sysinfo(GITVERSION_X32, temperature);
+    //can_send_sysinfo(GITVERSION_X32, system_mcutemperature());
 
-    chThdSleepMilliseconds(10*1000);
+    start = chVTGetSystemTime();
+    end = chTimeAddX(start, TIME_S2I(10));
+    while (chVTIsSystemTimeWithin(start, end))
+    {
+      watchdog_feed(WATCHDOG_DOG_MAIN);
+      chThdSleepMilliseconds(100);
+    }
   }
 }
