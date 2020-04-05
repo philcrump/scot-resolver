@@ -61,7 +61,7 @@ class PCANBus(object):
 pcan = PCANBus()
 
 print(f"Sending Message...")
-msg = can.Message(arbitration_id=0x01A, is_extended_id=False, data=[])
+msg = can.Message(arbitration_id=0x01A, is_extended_id=False, data=[ord('R'),ord('E'),ord('S'),ord('E'),ord('T')])
 pcan.send(msg)
 
 pcan.cleanup()

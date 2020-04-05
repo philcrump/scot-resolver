@@ -190,35 +190,35 @@
                                      PIN_OSPEED_HIGH(GPIOA_RD_SPI_nCS))
 
 #define VAL_GPIOA_PUPDR             (PIN_PUPDR_PULLUP(GPIOA_RD_nSAMPLE) |       \
-                                     PIN_PUPDR_PULLUP(GPIOA_RD_RES0) |       \
-                                     PIN_PUPDR_PULLUP(GPIOA_RD_RES1) |     \
-                                     PIN_PUPDR_PULLUP(GPIOA_RD_A0) |       \
-                                     PIN_PUPDR_PULLUP(GPIOA_RD_A1) |       \
+                                     PIN_PUPDR_PULLDOWN(GPIOA_RD_RES0) |       \
+                                     PIN_PUPDR_PULLDOWN(GPIOA_RD_RES1) |     \
+                                     PIN_PUPDR_PULLDOWN(GPIOA_RD_A0) |       \
+                                     PIN_PUPDR_PULLDOWN(GPIOA_RD_A1) |       \
                                      PIN_PUPDR_FLOATING(GPIOA_RD_nLOT) |       \
                                      PIN_PUPDR_FLOATING(GPIOA_RD_nDOT) |       \
                                      PIN_PUPDR_FLOATING(GPIOA_PIN7) |       \
                                      PIN_PUPDR_FLOATING(GPIOA_PIN8) |       \
                                      PIN_PUPDR_FLOATING(GPIOA_UART_TX) |       \
                                      PIN_PUPDR_FLOATING(GPIOA_UART_RX) |       \
-                                     PIN_PUPDR_PULLUP(GPIOA_CAN_RX) |      \
-                                     PIN_PUPDR_PULLUP(GPIOA_CAN_TX) |       \
+                                     PIN_PUPDR_FLOATING(GPIOA_CAN_RX) |      \
+                                     PIN_PUPDR_FLOATING(GPIOA_CAN_TX) |       \
                                      PIN_PUPDR_PULLUP(GPIOA_SWDIO) |        \
                                      PIN_PUPDR_PULLDOWN(GPIOA_SWCLK) |      \
                                      PIN_PUPDR_PULLUP(GPIOA_RD_SPI_nCS))
 
 #define VAL_GPIOA_ODR               (PIN_ODR_HIGH(GPIOA_RD_nSAMPLE) |           \
-                                     PIN_ODR_HIGH(GPIOA_RD_RES0) |           \
-                                     PIN_ODR_HIGH(GPIOA_RD_RES1) |           \
-                                     PIN_ODR_HIGH(GPIOA_RD_A0) |           \
-                                     PIN_ODR_HIGH(GPIOA_RD_A1) |           \
+                                     PIN_ODR_LOW(GPIOA_RD_RES0) |           \
+                                     PIN_ODR_LOW(GPIOA_RD_RES1) |           \
+                                     PIN_ODR_LOW(GPIOA_RD_A0) |           \
+                                     PIN_ODR_LOW(GPIOA_RD_A1) |           \
                                      PIN_ODR_LOW(GPIOA_RD_nLOT) |            \
                                      PIN_ODR_LOW(GPIOA_RD_nDOT) |           \
-                                     PIN_ODR_HIGH(GPIOA_PIN7) |           \
-                                     PIN_ODR_HIGH(GPIOA_PIN8) |           \
-                                     PIN_ODR_HIGH(GPIOA_UART_TX) |           \
-                                     PIN_ODR_HIGH(GPIOA_UART_RX) |           \
-                                     PIN_ODR_HIGH(GPIOA_CAN_RX) |          \
-                                     PIN_ODR_HIGH(GPIOA_CAN_TX) |           \
+                                     PIN_ODR_LOW(GPIOA_PIN7) |           \
+                                     PIN_ODR_LOW(GPIOA_PIN8) |           \
+                                     PIN_ODR_LOW(GPIOA_UART_TX) |           \
+                                     PIN_ODR_LOW(GPIOA_UART_RX) |           \
+                                     PIN_ODR_LOW(GPIOA_CAN_RX) |          \
+                                     PIN_ODR_LOW(GPIOA_CAN_TX) |           \
                                      PIN_ODR_HIGH(GPIOA_SWDIO) |            \
                                      PIN_ODR_HIGH(GPIOA_SWCLK) |            \
                                      PIN_ODR_HIGH(GPIOA_RD_SPI_nCS))

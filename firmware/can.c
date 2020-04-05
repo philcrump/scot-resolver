@@ -22,8 +22,8 @@
 static bool can_initialised = false;
 
 static const CANConfig can_cfg = {
-  .mcr = CAN_MCR_TXFP | CAN_MCR_ABOM | CAN_MCR_AWUM,
-  .btr = CAN_BTR_LBKM | CAN_BTR_SJW(2) | CAN_BTR_TS2(2) | CAN_BTR_TS1(11) | CAN_BTR_BRP(2)
+  .mcr = CAN_MCR_TXFP | CAN_MCR_ABOM,
+  .btr = CAN_BTR_SJW(2) | CAN_BTR_TS2(2) | CAN_BTR_TS1(11) | CAN_BTR_BRP(2)
 };
 
 static const CANFilter can_filter = {
@@ -101,15 +101,19 @@ void can_send_sysinfo(const uint32_t gitversion, const int8_t temperature_degree
 static const uint8_t can_command_reset[5] = { 'R', 'E', 'S', 'E', 'T'};
 static void can_rx_process(CANRxFrame *message)
 {
-  if(message->IDE == CAN_IDE_STD && message->SID == 0x01A)
+  if(message->RTR == CAN_RTR_DATA
+    && message->IDE == CAN_IDE_STD
+    && message->SID == 0x01A)
   {
     if(message->DLC == sizeof(can_command_reset)
       && 0 == memcmp(can_command_reset, message->data8, sizeof(can_command_reset)))
     {
       /* Reset Command! */
-      sdWriteString(&SD1, "Received Reset Command!\r\n");
-      //chThdSleepMilliseconds(50);
-      //system_reset();
+      system_reset();
+    }
+    else
+    {
+      sdWriteString(&SD1, "Error: Received Unknown Command\r\n");
     }
   }
 }
