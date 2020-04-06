@@ -42,6 +42,14 @@ void ad2s1210_init(void)
   /* Set ~SAMPLE */
   palSetLine(LINE_RD_nSAMPLE);
 
+  /* Pull nReset Low for at least 10us */
+  palClearLine(LINE_RD_nRESET);
+  chThdSleepMilliseconds(10);
+  palSetLine(LINE_RD_nRESET);
+
+  /* Wait tTRACK to reinitialise (max of 66ms @ 16bits) */
+  chThdSleepMilliseconds(100);
+
   /* Configure Excitation Frequency of 2KHz */
   ad2s1210_write_register(0x91, 0x08);
 
@@ -65,7 +73,7 @@ void ad2s1210_init(void)
   }
 
   /* Reset Tracking Loop */
-  ad2s1210_write_register(0xF0, 0xF0);
+  //ad2s1210_write_register(0xF0, 0xF0);
 }
 
 void ad2s1210_read_position(uint16_t *position_ptr)
@@ -148,7 +156,6 @@ THD_FUNCTION(ad2s1210_service_thread, arg)
     uint8_t fault;
     uint16_t position;
 
-    /* Should have been init-ed by main(), but let's make sure */
     ad2s1210_init();
     can_init();
 
@@ -161,6 +168,12 @@ THD_FUNCTION(ad2s1210_service_thread, arg)
         {
           can_send_position_and_fault(position, fault);
           //ad2s1210_explain_faultregister(&SD1, fault);
+
+          if((fault & (0x1 << 0)) > 0)
+          {
+            /* Configuration Parity Error, so reset */
+            ad2s1210_init();
+          }
         }
         else
         {

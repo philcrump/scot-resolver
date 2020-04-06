@@ -73,10 +73,11 @@
 
 #define GPIOB_PIN0                  0U
 #define GPIOB_PIN1                  1U
+//#define GPIOB_PIN2                  2U
 #define GPIOB_RD_SPI_SCK            3U
 #define GPIOB_RD_SPI_MISO           4U
 #define GPIOB_RD_SPI_MOSI           5U
-#define GPIOB_PIN6                  6U
+#define GPIOB_RD_nRESET             6U
 #define GPIOB_PIN7                  7U
 #define GPIOB_BOOT0                 8U
 
@@ -94,6 +95,8 @@
 #define LINE_RD_nLOT                PAL_LINE(GPIOA, GPIOA_RD_nLOT)
 #define LINE_RD_nDOT                PAL_LINE(GPIOA, GPIOA_RD_nDOT)
 #define LINE_RD_SPI_nCS             PAL_LINE(GPIOA, GPIOA_RD_SPI_nCS)
+
+#define LINE_RD_nRESET              PAL_LINE(GPIOB, GPIOB_RD_nRESET)
 
 /*===========================================================================*/
 /* Driver pre-compile time settings.                                         */
@@ -251,7 +254,7 @@
                                      PIN_MODE_ALTERNATE(GPIOB_RD_SPI_SCK) |           \
                                      PIN_MODE_ALTERNATE(GPIOB_RD_SPI_MISO) |       \
                                      PIN_MODE_ALTERNATE(GPIOB_RD_SPI_MOSI) |        \
-                                     PIN_MODE_INPUT(GPIOB_PIN6) |        \
+                                     PIN_MODE_OUTPUT(GPIOB_RD_nRESET) |        \
                                      PIN_MODE_INPUT(GPIOB_PIN7) |         \
                                      PIN_MODE_INPUT(GPIOB_BOOT0))
 
@@ -260,7 +263,7 @@
                                      PIN_OTYPE_PUSHPULL(GPIOB_RD_SPI_SCK) |       \
                                      PIN_OTYPE_PUSHPULL(GPIOB_RD_SPI_MISO) |    \
                                      PIN_OTYPE_PUSHPULL(GPIOB_RD_SPI_MOSI) |    \
-                                     PIN_OTYPE_PUSHPULL(GPIOB_PIN6) |    \
+                                     PIN_OTYPE_PUSHPULL(GPIOB_RD_nRESET) |    \
                                      PIN_OTYPE_PUSHPULL(GPIOB_PIN7) |     \
                                      PIN_OTYPE_PUSHPULL(GPIOB_BOOT0))
 
@@ -269,7 +272,7 @@
                                      PIN_OSPEED_HIGH(GPIOB_RD_SPI_SCK) |          \
                                      PIN_OSPEED_HIGH(GPIOB_RD_SPI_MISO) |       \
                                      PIN_OSPEED_HIGH(GPIOB_RD_SPI_MOSI) |       \
-                                     PIN_OSPEED_HIGH(GPIOB_PIN6) |       \
+                                     PIN_OSPEED_LOW(GPIOB_RD_nRESET) |       \
                                      PIN_OSPEED_HIGH(GPIOB_PIN7) |        \
                                      PIN_OSPEED_HIGH(GPIOB_BOOT0))
 
@@ -278,7 +281,7 @@
                                      PIN_PUPDR_PULLUP(GPIOB_RD_SPI_SCK) |         \
                                      PIN_PUPDR_PULLUP(GPIOB_RD_SPI_MISO) |    \
                                      PIN_PUPDR_PULLUP(GPIOB_RD_SPI_MOSI) |      \
-                                     PIN_PUPDR_PULLUP(GPIOB_PIN6) |      \
+                                     PIN_PUPDR_PULLUP(GPIOB_RD_nRESET) |      \
                                      PIN_PUPDR_PULLUP(GPIOB_PIN7) |       \
                                      PIN_PUPDR_PULLUP(GPIOB_BOOT0))
 
@@ -287,7 +290,7 @@
                                      PIN_ODR_HIGH(GPIOB_RD_SPI_SCK) |             \
                                      PIN_ODR_LOW(GPIOB_RD_SPI_MISO) |           \
                                      PIN_ODR_HIGH(GPIOB_RD_SPI_MOSI) |          \
-                                     PIN_ODR_HIGH(GPIOB_PIN6) |          \
+                                     PIN_ODR_HIGH(GPIOB_RD_nRESET) |          \
                                      PIN_ODR_HIGH(GPIOB_PIN7) |           \
                                      PIN_ODR_HIGH(GPIOB_BOOT0))
 
@@ -296,7 +299,7 @@
                                      PIN_AFIO_AF(GPIOB_RD_SPI_SCK, 0U) |          \
                                      PIN_AFIO_AF(GPIOB_RD_SPI_MISO, 0U) |       \
                                      PIN_AFIO_AF(GPIOB_RD_SPI_MOSI, 0U) |       \
-                                     PIN_AFIO_AF(GPIOB_PIN6, 0U) |       \
+                                     PIN_AFIO_AF(GPIOB_RD_nRESET, 0U) |       \
                                      PIN_AFIO_AF(GPIOB_PIN7, 0U))
 #define VAL_GPIOB_AFRH              (PIN_AFIO_AF(GPIOB_BOOT0, 0U))
 
