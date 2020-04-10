@@ -47,9 +47,6 @@ void ad2s1210_init(void)
   chThdSleepMilliseconds(10);
   palSetLine(LINE_RD_nRESET);
 
-  /* Wait tTRACK to reinitialise (max of 66ms @ 16bits) */
-  chThdSleepMilliseconds(100);
-
   /* Configure Excitation Frequency of 2KHz */
   ad2s1210_write_register(0x91, 0x08);
 
@@ -72,8 +69,16 @@ void ad2s1210_init(void)
     ad2s1210_write_register(0x92, 0x7F);
   }
 
+  /* Wait tTRACK to reinitialise (max of 66ms @ 16bits) */
+  chThdSleepMilliseconds(100);
+
   /* Reset Tracking Loop */
   //ad2s1210_write_register(0xF0, 0xF0);
+
+  /* Clear Fault Register */
+  palClearLine(LINE_RD_nSAMPLE);
+  chThdSleepMicroseconds(1);
+  palSetLine(LINE_RD_nSAMPLE);
 }
 
 void ad2s1210_read_position(uint16_t *position_ptr)
