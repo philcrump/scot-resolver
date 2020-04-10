@@ -110,12 +110,6 @@ include $(CHIBIOS)/os/hal/osal/rt-nil/osal.mk
 # RTOS files (optional).
 include $(CHIBIOS)/os/rt/rt.mk
 include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v6m.mk
-# Auto-build files in ./source recursively.
-include $(CHIBIOS)/tools/mk/autobuild.mk
-# Other files (optional).
-#include $(CHIBIOS)/test/lib/test.mk
-#include $(CHIBIOS)/test/rt/rt_test.mk
-#include $(CHIBIOS)/test/oslib/oslib_test.mk
 
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F042x6.ld
@@ -124,7 +118,6 @@ LDSCRIPT= $(STARTUPLD)/STM32F042x6.ld
 # setting.
 CSRC = $(ALLCSRC) \
        $(BOARDSRC) \
-       $(TESTSRC) \
        ad2s1210.c \
        can.c \
        watchdog.c \
