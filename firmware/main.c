@@ -40,12 +40,14 @@ int main(void)
   systime_t start, end;
   while(true)
   {
-    //can_send_sysinfo(GITVERSION_X32, system_mcutemperature());
+    can_send_sysinfo(GITVERSION_X32, system_mcutemperature());
 
+    /* Set timer for 10s */
     start = chVTGetSystemTime();
     end = chTimeAddX(start, TIME_S2I(10));
     while (chVTIsSystemTimeWithin(start, end))
     {
+      /* Feed watchdog, sleep for 100ms, repeat */
       watchdog_feed(WATCHDOG_DOG_MAIN);
       chThdSleepMilliseconds(100);
     }
