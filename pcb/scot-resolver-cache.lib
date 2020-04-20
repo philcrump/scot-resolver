@@ -110,28 +110,6 @@ X 4 4 0 -200 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device_D
-#
-DEF Device_D D 0 40 N N 1 F N
-F0 "D" 0 100 50 H V C CNN
-F1 "Device_D" 0 -100 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-$FPLIST
- TO-???*
- *_Diode_*
- *SingleDiode*
- D_*
-$ENDFPLIST
-DRAW
-P 2 0 1 8 -50 50 -50 -50 N
-P 2 0 1 0 50 0 -50 0 N
-P 4 0 1 8 50 50 50 -50 -50 0 50 50 N
-X K 1 -150 0 100 R 50 50 1 1 P
-X A 2 150 0 100 L 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
 # Device_Ferrite_Bead_Small
 #
 DEF Device_Ferrite_Bead_Small FB 0 0 N Y 1 F N
@@ -193,6 +171,28 @@ X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Jumper_SolderJumper_2_Open
+#
+DEF Jumper_SolderJumper_2_Open JP 0 0 Y N 1 F N
+F0 "JP" 0 80 50 H V C CNN
+F1 "Jumper_SolderJumper_2_Open" 0 -100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ SolderJumper*Open*
+$ENDFPLIST
+DRAW
+A -10 0 40 901 -901 0 1 0 N -10 40 -10 -40
+A -10 0 40 901 -901 0 1 0 F -10 40 -10 -40
+A 10 0 40 -899 899 0 1 0 N 10 -40 10 40
+A 10 0 40 -899 899 0 1 0 F 10 -40 10 40
+P 2 0 1 0 -10 40 -10 -40 N
+P 2 0 1 0 10 40 10 -40 N
+X A 1 -150 0 100 R 50 50 1 1 P
+X B 2 150 0 100 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Mechanical_MountingHole
 #
 DEF Mechanical_MountingHole H 0 40 Y Y 1 F N
@@ -205,6 +205,29 @@ $FPLIST
 $ENDFPLIST
 DRAW
 C 0 0 50 0 1 50 N
+ENDDRAW
+ENDDEF
+#
+# Regulator_Linear_LM317_3PinPackage
+#
+DEF Regulator_Linear_LM317_3PinPackage U 0 10 Y Y 1 F N
+F0 "U" -150 125 50 H V C CNN
+F1 "Regulator_Linear_LM317_3PinPackage" 0 125 50 H V L CNN
+F2 "" 0 250 50 H I C CIN
+F3 "" 0 0 50 H I C CNN
+ALIAS AZ1117-ADJ
+$FPLIST
+ SOT?223*
+ SOT?89*
+ TO?220*
+ TO?252*
+ TO?263*
+$ENDFPLIST
+DRAW
+S -200 75 200 -200 0 1 10 f
+X ADJ 1 0 -300 100 U 50 50 1 1 I
+X VO 2 300 0 100 L 50 50 1 1 w
+X VI 3 -300 0 100 R 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
@@ -372,20 +395,6 @@ X +VS 8 -400 400 100 R 50 50 0 0 W
 ENDDRAW
 ENDDEF
 #
-# agg-kicad_AVCC
-#
-DEF agg-kicad_AVCC #PWR 0 40 N N 1 F P
-F0 "#PWR" 0 110 50 H I L CNN
-F1 "agg-kicad_AVCC" 0 90 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 2 0 1 0 0 50 20 20 N
-P 3 0 1 0 0 0 0 50 -20 20 N
-X AVCC 1 0 0 0 L 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
 # agg-kicad_CONN_01x03
 #
 DEF agg-kicad_CONN_01x03 J 0 1 Y N 1 F N
@@ -506,21 +515,6 @@ S -300 150 300 -150 0 1 0 f
 X VIN 1 -400 100 100 R 50 50 0 0 W
 X GND 2 -400 -100 100 R 50 50 0 0 W
 X VOUT 3 400 100 100 L 50 50 0 0 w
-ENDDRAW
-ENDDEF
-#
-# power_+15V
-#
-DEF power_+15V #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "power_+15V" 0 140 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +15V 1 0 0 0 U 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
