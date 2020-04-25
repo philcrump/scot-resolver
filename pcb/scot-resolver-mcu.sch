@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 9 9
+Sheet 7 7
 Title ""
 Date ""
 Rev ""
@@ -149,36 +149,7 @@ Wire Wire Line
 	3400 2700 3400 2750
 Connection ~ 3400 2750
 Wire Wire Line
-	2750 2800 2750 2500
-Wire Wire Line
-	2750 2500 2700 2500
-Wire Wire Line
-	2700 2500 2700 2650
-Wire Wire Line
-	2700 2650 2650 2650
-Wire Wire Line
-	2650 2650 2650 2500
-Wire Wire Line
-	2650 2500 2600 2500
-Wire Wire Line
-	2600 2500 2600 2650
-Wire Wire Line
-	2600 2650 2550 2650
-Wire Wire Line
-	2550 2650 2550 2500
-Wire Wire Line
-	2550 2500 2500 2500
-Wire Wire Line
-	2500 2500 2500 2650
-Wire Wire Line
-	2500 2650 2450 2650
-Wire Wire Line
-	2450 2650 2450 2500
-Wire Wire Line
-	2450 2500 1850 2500
-Wire Wire Line
 	1850 2500 1850 2750
-Connection ~ 2750 2800
 Connection ~ 1850 2750
 Wire Wire Line
 	1750 2500 1850 2500
@@ -1039,4 +1010,22 @@ Text Label 3250 4500 0    50   ~ 0
 RD_nRESET
 Text Label 8500 4550 0    50   ~ 0
 RD_nRESET
+$Comp
+L Device:Ferrite_Bead_Small FB?
+U 1 1 5EAA39FE
+P 2300 2500
+F 0 "FB?" V 2063 2500 50  0000 C CNN
+F 1 "Ferrite_Bead_Small" V 2154 2500 50  0000 C CNN
+F 2 "" V 2230 2500 50  0001 C CNN
+F 3 "~" H 2300 2500 50  0001 C CNN
+	1    2300 2500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2750 2800 2750 2500
+Wire Wire Line
+	2750 2500 2400 2500
+Connection ~ 2750 2800
+Wire Wire Line
+	2200 2500 1850 2500
 $EndSCHEMATC

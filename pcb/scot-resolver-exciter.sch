@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 9
+Sheet 2 7
 Title ""
 Date ""
 Rev ""
@@ -83,22 +83,11 @@ F 3 "~" H 9050 2150 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:C C12
-U 1 1 5E0B3AAD
-P 9050 1950
-F 0 "C12" H 9165 1996 50  0000 L CNN
-F 1 "4n7" H 9165 1905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0402_1005Metric" H 9088 1800 50  0001 C CNN
-F 3 "~" H 9050 1950 50  0001 C CNN
-	1    9050 1950
-	0    -1   -1   0   
-$EndComp
-$Comp
 L Device:R R9
 U 1 1 5E0B406D
 P 8650 2000
 F 0 "R9" V 8443 2000 50  0000 C CNN
-F 1 "620R" V 8534 2000 50  0000 C CNN
+F 1 "390R" V 8534 2000 50  0000 C CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" V 8580 2000 50  0001 C CNN
 F 3 "~" H 8650 2000 50  0001 C CNN
 	1    8650 2000
@@ -143,7 +132,7 @@ L Device:R R10
 U 1 1 5E0D2F73
 P 8700 4400
 F 0 "R10" V 8493 4400 50  0000 C CNN
-F 1 "620R" V 8584 4400 50  0000 C CNN
+F 1 "390R" V 8584 4400 50  0000 C CNN
 F 2 "Resistor_SMD:R_0402_1005Metric" V 8630 4400 50  0001 C CNN
 F 3 "~" H 8700 4400 50  0001 C CNN
 	1    8700 4400
@@ -434,7 +423,7 @@ Wire Wire Line
 	4100 4500 3700 4500
 Wire Wire Line
 	3700 3350 4100 3350
-Text Notes 7400 6000 2    98   ~ 0
+Text Notes 6200 5900 2    98   ~ 0
 3-Pole Butterworth Filter\nG = -1, Fc = approx. 40KHz
 $Comp
 L Device:C C11
@@ -639,4 +628,17 @@ F 3 "" H 8650 1850 50  0001 C CNN
 	1    8650 1850
 	-1   0    0    1   
 $EndComp
+$Comp
+L Device:C C12
+U 1 1 5E0B3AAD
+P 9050 1950
+F 0 "C12" H 9165 1996 50  0000 L CNN
+F 1 "4n7" H 9165 1905 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0402_1005Metric" H 9088 1800 50  0001 C CNN
+F 3 "~" H 9050 1950 50  0001 C CNN
+	1    9050 1950
+	0    -1   -1   0   
+$EndComp
+Text Notes 8300 5250 0    50   ~ 0
+AD8397:\n910R // 4.7nF = 864R @ 2KHz\nG = 1 + (864 / 390) = 3.22\nMaxV = 13.76V\nSingle-ended Voltage Swing = 11.58Vp-p\nDifferential Voltage Drive: 23.16Vp-p
 $EndSCHEMATC

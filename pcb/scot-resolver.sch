@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 9
+Sheet 1 7
 Title ""
 Date ""
 Rev ""
@@ -13,28 +13,6 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-$Comp
-L Connector:Conn_01x02_Female J2
-U 1 1 5E03E563
-P 1350 2700
-F 0 "J2" H 1242 2375 50  0000 C CNN
-F 1 "Conn_01x02_Female" H 1242 2466 50  0000 C CNN
-F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 1350 2700 50  0001 C CNN
-F 3 "~" H 1350 2700 50  0001 C CNN
-	1    1350 2700
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x02_Female J3
-U 1 1 5E03F192
-P 1350 3550
-F 0 "J3" H 1242 3225 50  0000 C CNN
-F 1 "Conn_01x02_Female" H 1242 3316 50  0000 C CNN
-F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 1350 3550 50  0001 C CNN
-F 3 "~" H 1350 3550 50  0001 C CNN
-	1    1350 3550
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	1550 3450 1700 3450
 Wire Wire Line
@@ -98,16 +76,6 @@ Wire Wire Line
 Wire Wire Line
 	9300 1650 9950 1650
 $Sheet
-S 7550 3300 1750 450 
-U 5E46BA7D
-F0 "Resolver Receiver SIN-" 50
-F1 "scot-resolver-receiver.sch" 50
-F2 "RECEIVER_INPUT" I R 9300 3650 50 
-F3 "AD2S1210_VREF" I L 7550 3500 50 
-F4 "AD2S1210_INPUT" I L 7550 3650 50 
-F5 "RECEIVER_5V" I L 7550 3400 50 
-$EndSheet
-$Sheet
 S 7550 4200 1750 450 
 U 5E46F57D
 F0 "Resolver Receiver COS+" 50
@@ -117,32 +85,6 @@ F3 "AD2S1210_VREF" I L 7550 4400 50
 F4 "AD2S1210_INPUT" I L 7550 4550 50 
 F5 "RECEIVER_5V" I L 7550 4300 50 
 $EndSheet
-$Sheet
-S 7550 4900 1750 450 
-U 5E46F583
-F0 "Resolver Receiver COS-" 50
-F1 "scot-resolver-receiver.sch" 50
-F2 "RECEIVER_INPUT" I R 9300 5250 50 
-F3 "AD2S1210_VREF" I L 7550 5100 50 
-F4 "AD2S1210_INPUT" I L 7550 5250 50 
-F5 "RECEIVER_5V" I L 7550 5000 50 
-$EndSheet
-Wire Wire Line
-	9500 3250 9500 2950
-Wire Wire Line
-	9500 2950 9300 2950
-Wire Wire Line
-	9500 3350 9500 3650
-Wire Wire Line
-	9500 3650 9300 3650
-Wire Wire Line
-	9500 4850 9500 4550
-Wire Wire Line
-	9500 4550 9300 4550
-Wire Wire Line
-	9500 4950 9500 5250
-Wire Wire Line
-	9500 5250 9300 5250
 $Sheet
 S 2200 2650 1350 750 
 U 5E4877AC
@@ -200,21 +142,9 @@ Wire Wire Line
 Wire Wire Line
 	7100 2700 7550 2700
 Connection ~ 7100 1450
-Wire Wire Line
-	7100 2700 7100 3400
-Wire Wire Line
-	7100 3400 7550 3400
 Connection ~ 7100 2700
 Wire Wire Line
-	7100 3400 7100 4300
-Wire Wire Line
 	7100 4300 7550 4300
-Connection ~ 7100 3400
-Wire Wire Line
-	7100 4300 7100 5000
-Wire Wire Line
-	7100 5000 7550 5000
-Connection ~ 7100 4300
 $Sheet
 S 4400 2250 1900 1650
 U 5E4C3ECD
@@ -267,39 +197,15 @@ Wire Wire Line
 Wire Wire Line
 	6800 2800 7550 2800
 Connection ~ 6800 2450
-Wire Wire Line
-	6800 2800 6800 3500
-Wire Wire Line
-	6800 3500 7550 3500
 Connection ~ 6800 2800
 Wire Wire Line
-	6800 3500 6800 4400
-Wire Wire Line
 	6800 4400 7550 4400
-Connection ~ 6800 3500
-Wire Wire Line
-	6800 4400 6800 5100
-Wire Wire Line
-	6800 5100 7550 5100
-Connection ~ 6800 4400
 Wire Wire Line
 	6300 3500 6650 3500
 Wire Wire Line
 	6650 3500 6650 4550
 Wire Wire Line
 	6650 4550 7550 4550
-Wire Wire Line
-	7550 5250 6550 5250
-Wire Wire Line
-	6550 5250 6550 3650
-Wire Wire Line
-	6550 3650 6300 3650
-Wire Wire Line
-	6300 3250 6950 3250
-Wire Wire Line
-	6950 3250 6950 3650
-Wire Wire Line
-	6950 3650 7550 3650
 Wire Wire Line
 	6300 3100 6950 3100
 Wire Wire Line
@@ -322,9 +228,9 @@ Text Notes 1800 1300 2    50   ~ 0
 0.1" Terminal Block
 Text Notes 10500 1950 2    50   ~ 0
 Resolver Exciter Coil
-Text Notes 10750 3650 2    50   ~ 0
+Text Notes 10750 3250 2    50   ~ 0
 Resolver Sine Receiver Coil
-Text Notes 10850 5300 2    50   ~ 0
+Text Notes 10850 4900 2    50   ~ 0
 Resolver Cosine Receiver Coil
 Wire Wire Line
 	4200 1300 3550 1300
@@ -346,36 +252,28 @@ F 3 "" H 9950 1750 50  0001 C CNN
 	1    9950 1750
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	9500 3250 9950 3250
-Wire Wire Line
-	9950 3350 9500 3350
 $Comp
 L power:GNDA #PWR0102
 U 1 1 5E62D3A8
-P 9950 3450
-F 0 "#PWR0102" H 9950 3200 50  0001 C CNN
-F 1 "GNDA" V 9955 3323 50  0000 R CNN
-F 2 "" H 9950 3450 50  0001 C CNN
-F 3 "" H 9950 3450 50  0001 C CNN
-	1    9950 3450
+P 9950 3050
+F 0 "#PWR0102" H 9950 2800 50  0001 C CNN
+F 1 "GNDA" V 9955 2923 50  0000 R CNN
+F 2 "" H 9950 3050 50  0001 C CNN
+F 3 "" H 9950 3050 50  0001 C CNN
+	1    9950 3050
 	0    1    1    0   
 $EndComp
 $Comp
 L power:GNDA #PWR0103
 U 1 1 5E638B63
-P 9950 5050
-F 0 "#PWR0103" H 9950 4800 50  0001 C CNN
-F 1 "GNDA" V 9955 4923 50  0000 R CNN
-F 2 "" H 9950 5050 50  0001 C CNN
-F 3 "" H 9950 5050 50  0001 C CNN
-	1    9950 5050
+P 9950 4650
+F 0 "#PWR0103" H 9950 4400 50  0001 C CNN
+F 1 "GNDA" V 9955 4523 50  0000 R CNN
+F 2 "" H 9950 4650 50  0001 C CNN
+F 3 "" H 9950 4650 50  0001 C CNN
+	1    9950 4650
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	9950 4950 9500 4950
-Wire Wire Line
-	9500 4850 9950 4850
 $Comp
 L Connector:Conn_01x03_Female J4
 U 1 1 5E63F585
@@ -385,28 +283,6 @@ F 1 "Conn_01x03_Female" H 10042 1416 50  0000 C CNN
 F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 10150 1650 50  0001 C CNN
 F 3 "~" H 10150 1650 50  0001 C CNN
 	1    10150 1650
-	1    0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x03_Female J5
-U 1 1 5E642718
-P 10150 3350
-F 0 "J5" H 10042 3025 50  0000 C CNN
-F 1 "Conn_01x03_Female" H 10042 3116 50  0000 C CNN
-F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 10150 3350 50  0001 C CNN
-F 3 "~" H 10150 3350 50  0001 C CNN
-	1    10150 3350
-	1    0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x03_Female J6
-U 1 1 5E642DF1
-P 10150 4950
-F 0 "J6" H 10042 4625 50  0000 C CNN
-F 1 "Conn_01x03_Female" H 10042 4716 50  0000 C CNN
-F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 10150 4950 50  0001 C CNN
-F 3 "~" H 10150 4950 50  0001 C CNN
-	1    10150 4950
 	1    0    0    1   
 $EndComp
 $Comp
@@ -431,14 +307,140 @@ F 3 "~" H 5550 4950 50  0001 C CNN
 	1    5550 4950
 	1    0    0    -1  
 $EndComp
-Text Notes 1500 2850 2    50   ~ 0
+Text Notes 1500 2950 2    50   ~ 0
 0.1" Terminal Block
-Text Notes 1500 3700 2    50   ~ 0
+Text Notes 1500 3800 2    50   ~ 0
 0.1" Terminal Block
 Text Notes 11000 1700 2    50   ~ 0
 0.1" Terminal Block
-Text Notes 11000 3400 2    50   ~ 0
+Text Notes 11000 3000 2    50   ~ 0
 0.1" Terminal Block
-Text Notes 11000 5000 2    50   ~ 0
+Text Notes 11000 4600 2    50   ~ 0
 0.1" Terminal Block
+$Comp
+L Connector:Conn_01x02_Female J?
+U 1 1 5EAD507C
+P 10150 3050
+F 0 "J?" H 10042 2725 50  0000 C CNN
+F 1 "Conn_01x02_Female" H 10042 2816 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 10150 3050 50  0001 C CNN
+F 3 "~" H 10150 3050 50  0001 C CNN
+	1    10150 3050
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	9300 2950 9950 2950
+$Comp
+L Connector:Conn_01x02_Female J?
+U 1 1 5EADF09C
+P 10150 4650
+F 0 "J?" H 10042 4325 50  0000 C CNN
+F 1 "Conn_01x02_Female" H 10042 4416 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 10150 4650 50  0001 C CNN
+F 3 "~" H 10150 4650 50  0001 C CNN
+	1    10150 4650
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	9300 4550 9950 4550
+Text Notes 10300 4050 2    50   ~ 0
+Receiver Bias
+$Comp
+L power:GNDA #PWR?
+U 1 1 5EAE45AD
+P 9950 3800
+F 0 "#PWR?" H 9950 3550 50  0001 C CNN
+F 1 "GNDA" V 9955 3673 50  0000 R CNN
+F 2 "" H 9950 3800 50  0001 C CNN
+F 3 "" H 9950 3800 50  0001 C CNN
+	1    9950 3800
+	0    1    1    0   
+$EndComp
+Text Notes 11000 3750 2    50   ~ 0
+0.1" Terminal Block
+$Comp
+L Connector:Conn_01x02_Female J?
+U 1 1 5EAE45B8
+P 10150 3800
+F 0 "J?" H 10042 3475 50  0000 C CNN
+F 1 "Conn_01x02_Female" H 10042 3566 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 10150 3800 50  0001 C CNN
+F 3 "~" H 10150 3800 50  0001 C CNN
+	1    10150 3800
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	7100 2700 7100 4300
+Wire Wire Line
+	6800 2800 6800 3250
+Wire Wire Line
+	6800 3700 9950 3700
+Connection ~ 6800 3700
+Wire Wire Line
+	6800 3700 6800 4400
+Wire Wire Line
+	6300 3650 6800 3650
+Connection ~ 6800 3650
+Wire Wire Line
+	6800 3650 6800 3700
+Wire Wire Line
+	6300 3250 6800 3250
+Connection ~ 6800 3250
+Wire Wire Line
+	6800 3250 6800 3650
+$Comp
+L Connector:Conn_01x03_Female J?
+U 1 1 5EAEEF38
+P 1350 2700
+F 0 "J?" H 1242 2375 50  0000 C CNN
+F 1 "Conn_01x03_Female" H 1242 2466 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 1350 2700 50  0001 C CNN
+F 3 "~" H 1350 2700 50  0001 C CNN
+	1    1350 2700
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x03_Female J?
+U 1 1 5EAF204B
+P 1350 3550
+F 0 "J?" H 1242 3225 50  0000 C CNN
+F 1 "Conn_01x03_Female" H 1242 3316 50  0000 C CNN
+F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 1350 3550 50  0001 C CNN
+F 3 "~" H 1350 3550 50  0001 C CNN
+	1    1350 3550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1550 2800 1800 2800
+Wire Wire Line
+	1800 2800 1800 3650
+Wire Wire Line
+	1800 3650 1550 3650
+$Comp
+L Jumper:SolderJumper_2_Open JP?
+U 1 1 5EAF4284
+P 1800 3850
+F 0 "JP?" V 1754 3918 50  0000 L CNN
+F 1 "SolderJumper_2_Open" V 1845 3918 50  0000 L CNN
+F 2 "" H 1800 3850 50  0001 C CNN
+F 3 "~" H 1800 3850 50  0001 C CNN
+	1    1800 3850
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5EAF4C43
+P 1800 4050
+F 0 "#PWR?" H 1800 3800 50  0001 C CNN
+F 1 "GND" H 1805 3877 50  0000 C CNN
+F 2 "" H 1800 4050 50  0001 C CNN
+F 3 "" H 1800 4050 50  0001 C CNN
+	1    1800 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1800 4050 1800 4000
+Wire Wire Line
+	1800 3700 1800 3650
+Connection ~ 1800 3650
 $EndSCHEMATC

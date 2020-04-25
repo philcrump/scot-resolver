@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 9
+Sheet 4 7
 Title ""
 Date ""
 Rev ""
@@ -90,7 +90,7 @@ P 6950 5750
 AR Path="/5E2DB019" Ref="R?"  Part="1" 
 AR Path="/5E2C28ED/5E2DB019" Ref="R19"  Part="1" 
 F 0 "R19" H 7020 5796 50  0000 L CNN
-F 1 "6.2K" H 7020 5705 50  0000 L CNN
+F 1 "5K6" H 7020 5705 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 6880 5750 50  0001 C CNN
 F 3 "~" H 6950 5750 50  0001 C CNN
 	1    6950 5750
@@ -103,7 +103,7 @@ P 6950 5450
 AR Path="/5E2DB01F" Ref="R?"  Part="1" 
 AR Path="/5E2C28ED/5E2DB01F" Ref="R18"  Part="1" 
 F 0 "R18" H 7020 5496 50  0000 L CNN
-F 1 "62K" H 7020 5405 50  0000 L CNN
+F 1 "68K" H 7020 5405 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 6880 5450 50  0001 C CNN
 F 3 "~" H 6950 5450 50  0001 C CNN
 	1    6950 5450
@@ -185,7 +185,7 @@ EXCITER_16V+
 Wire Notes Line
 	8150 4750 8150 6150
 Wire Notes Line
-	2300 6150 2300 4750
+	1750 6150 1750 4750
 Text HLabel 2000 1700 0    50   Input ~ 0
 POWER_28V+
 Text HLabel 2000 2000 0    50   Input ~ 0
@@ -230,9 +230,9 @@ Wire Wire Line
 	2150 2000 2650 2000
 Connection ~ 2650 2000
 Wire Notes Line
-	2300 4750 8150 4750
+	1750 4750 8150 4750
 Wire Notes Line
-	8150 6150 2300 6150
+	8150 6150 1750 6150
 Wire Notes Line
 	7300 3950 10650 3950
 Wire Notes Line
@@ -613,14 +613,14 @@ $EndComp
 $Comp
 L Device:C C?
 U 1 1 5E9EAF60
-P 3150 5600
+P 2600 5600
 AR Path="/5E9EAF60" Ref="C?"  Part="1" 
 AR Path="/5E2C28ED/5E9EAF60" Ref="C?"  Part="1" 
-F 0 "C?" H 3265 5646 50  0000 L CNN
-F 1 "4u7/50V" H 3265 5555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3188 5450 50  0001 C CNN
-F 3 "~" H 3150 5600 50  0001 C CNN
-	1    3150 5600
+F 0 "C?" H 2715 5646 50  0000 L CNN
+F 1 "4u7/50V" H 2715 5555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 2638 5450 50  0001 C CNN
+F 3 "~" H 2600 5600 50  0001 C CNN
+	1    2600 5600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -637,9 +637,9 @@ F 3 "~" H 4650 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3150 5450 3150 5300
+	2600 5450 2600 5300
 Wire Wire Line
-	3150 5300 3450 5300
+	2600 5300 3200 5300
 Wire Wire Line
 	4050 5300 4100 5300
 Wire Wire Line
@@ -655,19 +655,17 @@ Wire Wire Line
 	4650 5300 4100 5300
 Connection ~ 4100 5300
 Wire Wire Line
-	4100 5900 3150 5900
+	4100 5900 3200 5900
 Wire Wire Line
-	3150 5900 3150 5750
+	2600 5900 2600 5750
 Connection ~ 4100 5900
-Text Notes 4100 5050 0    50   ~ 0
-Vo = approx. 17.9V
+Text Notes 2650 6350 0    50   ~ 0
+LM317:\nVo = 1.25 * (1 + (3K2 / 240)) + (50uA * 3K2) =  18.08V
 Text HLabel 7450 5900 2    50   Input ~ 0
 0V_EXCITER
 Wire Wire Line
 	7450 5900 7300 5900
 Connection ~ 7300 5900
-Text Notes 3300 4950 0    50   ~ 0
-4V dropout for ideal RR
 Text Label 1050 3350 0    50   ~ 0
 DIGITAL_6.5V+
 Text Label 1050 3650 0    50   ~ 0
@@ -755,16 +753,16 @@ Wire Wire Line
 Connection ~ 5900 5900
 Wire Wire Line
 	5900 5900 6450 5900
-Text HLabel 3050 5300 0    50   Input ~ 0
+Text HLabel 2450 5300 0    50   Input ~ 0
 POWER_28V+
-Text HLabel 3050 5900 0    50   Input ~ 0
+Text HLabel 2450 5900 0    50   Input ~ 0
 POWER_28V-
 Wire Wire Line
-	3150 5900 3050 5900
-Connection ~ 3150 5900
+	2600 5900 2450 5900
+Connection ~ 2600 5900
 Wire Wire Line
-	3150 5300 3050 5300
-Connection ~ 3150 5300
+	2600 5300 2450 5300
+Connection ~ 2600 5300
 Text Label 4350 3650 0    50   ~ 0
 DIGITAL_6.5V-
 Text Label 4350 3350 0    50   ~ 0
@@ -809,4 +807,29 @@ Connection ~ 2850 3650
 Connection ~ 9200 3650
 Wire Wire Line
 	9200 3650 9550 3650
+$Comp
+L Device:C C?
+U 1 1 5EA792EE
+P 3200 5600
+AR Path="/5EA792EE" Ref="C?"  Part="1" 
+AR Path="/5E2C28ED/5EA792EE" Ref="C?"  Part="1" 
+F 0 "C?" H 3315 5646 50  0000 L CNN
+F 1 "100n/50V" H 3315 5555 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3238 5450 50  0001 C CNN
+F 3 "~" H 3200 5600 50  0001 C CNN
+	1    3200 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 5750 3200 5900
+Connection ~ 3200 5900
+Wire Wire Line
+	3200 5900 2600 5900
+Wire Wire Line
+	3200 5450 3200 5300
+Connection ~ 3200 5300
+Wire Wire Line
+	3200 5300 3450 5300
+Text Notes 5450 6350 0    50   ~ 0
+LT1762:\nVo = 1.22 * (1 + (68K / 5K6)) + (30nA * 68K) = 16.04V
 $EndSCHEMATC
