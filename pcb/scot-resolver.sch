@@ -318,10 +318,10 @@ Text Notes 11000 3000 2    50   ~ 0
 Text Notes 11000 4600 2    50   ~ 0
 0.1" Terminal Block
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J5
 U 1 1 5EAD507C
 P 10150 3050
-F 0 "J?" H 10042 2725 50  0000 C CNN
+F 0 "J5" H 10042 2725 50  0000 C CNN
 F 1 "Conn_01x02_Female" H 10042 2816 50  0000 C CNN
 F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 10150 3050 50  0001 C CNN
 F 3 "~" H 10150 3050 50  0001 C CNN
@@ -331,10 +331,10 @@ $EndComp
 Wire Wire Line
 	9300 2950 9950 2950
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J8
 U 1 1 5EADF09C
 P 10150 4650
-F 0 "J?" H 10042 4325 50  0000 C CNN
+F 0 "J8" H 10042 4325 50  0000 C CNN
 F 1 "Conn_01x02_Female" H 10042 4416 50  0000 C CNN
 F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 10150 4650 50  0001 C CNN
 F 3 "~" H 10150 4650 50  0001 C CNN
@@ -346,10 +346,10 @@ Wire Wire Line
 Text Notes 10300 4050 2    50   ~ 0
 Receiver Bias
 $Comp
-L power:GNDA #PWR?
+L power:GNDA #PWR0113
 U 1 1 5EAE45AD
 P 9950 3800
-F 0 "#PWR?" H 9950 3550 50  0001 C CNN
+F 0 "#PWR0113" H 9950 3550 50  0001 C CNN
 F 1 "GNDA" V 9955 3673 50  0000 R CNN
 F 2 "" H 9950 3800 50  0001 C CNN
 F 3 "" H 9950 3800 50  0001 C CNN
@@ -359,10 +359,10 @@ $EndComp
 Text Notes 11000 3750 2    50   ~ 0
 0.1" Terminal Block
 $Comp
-L Connector:Conn_01x02_Female J?
+L Connector:Conn_01x02_Female J6
 U 1 1 5EAE45B8
 P 10150 3800
-F 0 "J?" H 10042 3475 50  0000 C CNN
+F 0 "J6" H 10042 3475 50  0000 C CNN
 F 1 "Conn_01x02_Female" H 10042 3566 50  0000 C CNN
 F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-2_1x02_P2.54mm_Horizontal" H 10150 3800 50  0001 C CNN
 F 3 "~" H 10150 3800 50  0001 C CNN
@@ -389,10 +389,10 @@ Connection ~ 6800 3250
 Wire Wire Line
 	6800 3250 6800 3650
 $Comp
-L Connector:Conn_01x03_Female J?
+L Connector:Conn_01x03_Female J2
 U 1 1 5EAEEF38
 P 1350 2700
-F 0 "J?" H 1242 2375 50  0000 C CNN
+F 0 "J2" H 1242 2375 50  0000 C CNN
 F 1 "Conn_01x03_Female" H 1242 2466 50  0000 C CNN
 F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 1350 2700 50  0001 C CNN
 F 3 "~" H 1350 2700 50  0001 C CNN
@@ -400,10 +400,10 @@ F 3 "~" H 1350 2700 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_01x03_Female J?
+L Connector:Conn_01x03_Female J3
 U 1 1 5EAF204B
 P 1350 3550
-F 0 "J?" H 1242 3225 50  0000 C CNN
+F 0 "J3" H 1242 3225 50  0000 C CNN
 F 1 "Conn_01x03_Female" H 1242 3316 50  0000 C CNN
 F 2 "TerminalBlock_TE-Connectivity:TerminalBlock_TE_282834-3_1x03_P2.54mm_Horizontal" H 1350 3550 50  0001 C CNN
 F 3 "~" H 1350 3550 50  0001 C CNN
@@ -417,21 +417,21 @@ Wire Wire Line
 Wire Wire Line
 	1800 3650 1550 3650
 $Comp
-L Jumper:SolderJumper_2_Open JP?
+L Jumper:SolderJumper_2_Open JP1
 U 1 1 5EAF4284
 P 1800 3850
-F 0 "JP?" V 1754 3918 50  0000 L CNN
+F 0 "JP1" V 1754 3918 50  0000 L CNN
 F 1 "SolderJumper_2_Open" V 1845 3918 50  0000 L CNN
-F 2 "" H 1800 3850 50  0001 C CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 1800 3850 50  0001 C CNN
 F 3 "~" H 1800 3850 50  0001 C CNN
 	1    1800 3850
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0114
 U 1 1 5EAF4C43
 P 1800 4050
-F 0 "#PWR?" H 1800 3800 50  0001 C CNN
+F 0 "#PWR0114" H 1800 3800 50  0001 C CNN
 F 1 "GND" H 1805 3877 50  0000 C CNN
 F 2 "" H 1800 4050 50  0001 C CNN
 F 3 "" H 1800 4050 50  0001 C CNN

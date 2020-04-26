@@ -169,8 +169,8 @@ L Device:C C?
 U 1 1 5ECCE60D
 P 6700 3850
 AR Path="/5ECCE60D" Ref="C?"  Part="1" 
-AR Path="/5E4877AC/5ECCE60D" Ref="C?"  Part="1" 
-F 0 "C?" H 6815 3896 50  0000 L CNN
+AR Path="/5E4877AC/5ECCE60D" Ref="C38"  Part="1" 
+F 0 "C38" H 6815 3896 50  0000 L CNN
 F 1 "4u7/5V" H 6815 3805 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6738 3700 50  0001 C CNN
 F 3 "~" H 6700 3850 50  0001 C CNN
@@ -188,10 +188,10 @@ Connection ~ 6700 4100
 Wire Wire Line
 	6700 4100 6850 4100
 $Comp
-L Jumper:SolderJumper_2_Open JP?
+L Jumper:SolderJumper_2_Open JP2
 U 1 1 5ECD2E93
 P 3800 4100
-F 0 "JP?" V 3754 4168 50  0000 L CNN
+F 0 "JP2" V 3754 4168 50  0000 L CNN
 F 1 "SolderJumper_2_Open" V 3845 4168 50  0000 L CNN
 F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 3800 4100 50  0001 C CNN
 F 3 "~" H 3800 4100 50  0001 C CNN
