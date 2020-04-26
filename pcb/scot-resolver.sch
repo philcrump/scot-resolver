@@ -72,9 +72,9 @@ Wire Wire Line
 Wire Wire Line
 	1550 1150 2200 1150
 Wire Wire Line
-	9950 1550 9300 1550
+	9950 1550 9400 1550
 Wire Wire Line
-	9300 1650 9950 1650
+	9300 1650 9400 1650
 $Sheet
 S 7550 4200 1750 450 
 U 5E46F57D
@@ -205,13 +205,13 @@ Wire Wire Line
 Wire Wire Line
 	6650 3500 6650 4550
 Wire Wire Line
-	6650 4550 7550 4550
+	6650 4550 7250 4550
 Wire Wire Line
 	6300 3100 6950 3100
 Wire Wire Line
 	6950 3100 6950 2950
 Wire Wire Line
-	6950 2950 7550 2950
+	6950 2950 7250 2950
 Wire Wire Line
 	6300 2700 6550 2700
 Wire Wire Line
@@ -443,4 +443,82 @@ Wire Wire Line
 Wire Wire Line
 	1800 3700 1800 3650
 Connection ~ 1800 3650
+$Comp
+L Connector:TestPoint_Alt TP1
+U 1 1 5EA970D9
+P 7600 5200
+F 0 "TP1" H 7658 5318 50  0000 L CNN
+F 1 "TestPoint_Alt" H 7658 5227 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Bridge_Pitch7.62mm_Drill1.3mm" H 7800 5200 50  0001 C CNN
+F 3 "~" H 7800 5200 50  0001 C CNN
+	1    7600 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP3
+U 1 1 5EA99834
+P 7250 4550
+F 0 "TP3" H 7192 4576 50  0000 R CNN
+F 1 "TestPoint" H 7192 4667 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 7450 4550 50  0001 C CNN
+F 3 "~" H 7450 4550 50  0001 C CNN
+	1    7250 4550
+	-1   0    0    1   
+$EndComp
+Connection ~ 7250 4550
+Wire Wire Line
+	7250 4550 7550 4550
+$Comp
+L Connector:TestPoint TP2
+U 1 1 5EA99EA7
+P 7250 2950
+F 0 "TP2" H 7192 2976 50  0000 R CNN
+F 1 "TestPoint" H 7192 3067 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 7450 2950 50  0001 C CNN
+F 3 "~" H 7450 2950 50  0001 C CNN
+	1    7250 2950
+	-1   0    0    1   
+$EndComp
+Connection ~ 7250 2950
+Wire Wire Line
+	7250 2950 7550 2950
+$Comp
+L Connector:TestPoint TP4
+U 1 1 5EA9AA55
+P 9400 1550
+F 0 "TP4" H 9458 1668 50  0000 L CNN
+F 1 "TestPoint" H 9458 1577 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 9600 1550 50  0001 C CNN
+F 3 "~" H 9600 1550 50  0001 C CNN
+	1    9400 1550
+	1    0    0    -1  
+$EndComp
+Connection ~ 9400 1550
+Wire Wire Line
+	9400 1550 9300 1550
+$Comp
+L Connector:TestPoint TP5
+U 1 1 5EA9B1EC
+P 9400 1650
+F 0 "TP5" H 9342 1676 50  0000 R CNN
+F 1 "TestPoint" H 9342 1767 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Pad_D1.5mm" H 9600 1650 50  0001 C CNN
+F 3 "~" H 9600 1650 50  0001 C CNN
+	1    9400 1650
+	-1   0    0    1   
+$EndComp
+Connection ~ 9400 1650
+Wire Wire Line
+	9400 1650 9950 1650
+$Comp
+L power:GNDA #PWR0115
+U 1 1 5EAA1A37
+P 7600 5200
+F 0 "#PWR0115" H 7600 4950 50  0001 C CNN
+F 1 "GNDA" V 7605 5073 50  0000 R CNN
+F 2 "" H 7600 5200 50  0001 C CNN
+F 3 "" H 7600 5200 50  0001 C CNN
+	1    7600 5200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
