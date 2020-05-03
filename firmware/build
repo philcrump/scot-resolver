@@ -20,6 +20,7 @@ opt_debug=false
 opt_asm=false
 opt_werror=false
 opt_sound=false
+opt_mthread=false
 
 hyphenjoin() {
   str=""
@@ -93,7 +94,7 @@ asmdump() {
 
 ## Read Flags
 OPTIND=1
-while getopts ":vDFmwS" opt; do
+while getopts ":vDFmwSM" opt; do
   case "$opt" in
     v) # Verbose
       opt_verbose=true
@@ -110,8 +111,11 @@ while getopts ":vDFmwS" opt; do
     w) # Werror
       opt_werror=true
       ;;
-    S) # Werror
+    S) # Flash Sound
       opt_sound=true
+      ;;
+    M) # Multithread Compile
+      opt_mthread=true
       ;;
     ?) # Illegal Option
       echo -e "$_ERROR_ Illegal option '$OPTARG'"
@@ -137,6 +141,12 @@ fi
 if $opt_werror; then
   printf "$_INFO_ Compiler treat Warnings as Errors:$COLOUR_RED ON $COLOUR_OFF\n";
   flags+=" WERROR=1";
+fi
+
+if $opt_mthread; then
+  mthreads=`nproc`
+  printf "$_INFO_ Multithread build enabled, threads: ${mthreads}$COLOUR_OFF\n";
+  flags+=" -j${mthreads}";
 fi
 
 printf "$_INFO_ Compiling..\n";
