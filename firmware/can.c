@@ -49,26 +49,12 @@ void can_init(void)
     can_initialised = true;
 }
 
-void can_send_position(const uint16_t position_value)
-{
-    CANTxFrame txmsg;
-
-    txmsg.IDE = CAN_IDE_STD; // Identifier Type: Standard
-    txmsg.SID = 0x010; // Standard Identifier Value (11bits)
-    txmsg.RTR = CAN_RTR_DATA; // Frame Type
-    txmsg.DLC = 2; // Data Length
-    txmsg.data8[0] = (position_value >> 8) & 0xFF;
-    txmsg.data8[1] = position_value & 0xFF;
-
-    canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &txmsg, TIME_IMMEDIATE);
-}
-
 void can_send_position_and_fault(const uint16_t position_value, const uint8_t fault_value)
 {
     CANTxFrame txmsg;
 
     txmsg.IDE = CAN_IDE_STD; // Identifier Type: Standard
-    txmsg.SID = 0x011; // Standard Identifier Value (11bits)
+    txmsg.SID = 0x010; // Standard Identifier Value (11bits)
     txmsg.RTR = CAN_RTR_DATA; // Frame Type
     txmsg.DLC = 3; // Data Length
     txmsg.data8[0] = (position_value >> 8) & 0xFF;

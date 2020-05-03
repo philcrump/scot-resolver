@@ -169,20 +169,18 @@ THD_FUNCTION(ad2s1210_service_thread, arg)
         ad2s1210_read_position(&position);
 
         ad2s1210_read_register(0xff, &fault);
+
+        can_send_position_and_fault(position, fault);
+
         if(fault != 0x00)
         {
-          can_send_position_and_fault(position, fault);
-          //ad2s1210_explain_faultregister(&SD1, fault);
+          /* Handle fault types */
 
           if((fault & (0x1 << 0)) > 0)
           {
             /* Configuration Parity Error, so reset */
             ad2s1210_init();
           }
-        }
-        else
-        {
-          can_send_position(position);
         }
 
         watchdog_feed(WATCHDOG_DOG_AD2S1210);

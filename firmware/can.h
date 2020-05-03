@@ -3,8 +3,6 @@
 
 void can_init(void);
 
-void can_send_position(const uint16_t position_value);
-
 void can_send_position_and_fault(const uint16_t position_value, const uint8_t fault_value);
 
 void can_send_sysinfo(const uint32_t gitversion, const int8_t temperature_degrees);
