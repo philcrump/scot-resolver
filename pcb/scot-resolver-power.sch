@@ -3,7 +3,7 @@ EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 4 7
+Sheet 3 7
 Title ""
 Date ""
 Rev ""
@@ -154,7 +154,7 @@ P 5200 5600
 AR Path="/5E3070F3" Ref="C?"  Part="1" 
 AR Path="/5E2C28ED/5E3070F3" Ref="C20"  Part="1" 
 F 0 "C20" H 5315 5646 50  0000 L CNN
-F 1 "1u" H 5315 5555 50  0000 L CNN
+F 1 "1u/50V" H 5315 5555 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 5238 5450 50  0001 C CNN
 F 3 "~" H 5200 5600 50  0001 C CNN
 	1    5200 5600
@@ -604,7 +604,7 @@ L Device:R R22
 U 1 1 5E9E8F66
 P 4100 5750
 F 0 "R22" H 4170 5796 50  0000 L CNN
-F 1 "3K2/1%" H 4170 5705 50  0000 L CNN
+F 1 "3K3/1%" H 4170 5705 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 4030 5750 50  0001 C CNN
 F 3 "~" H 4100 5750 50  0001 C CNN
 	1    4100 5750
@@ -630,7 +630,7 @@ P 4650 5600
 AR Path="/5E9F21C4" Ref="C?"  Part="1" 
 AR Path="/5E2C28ED/5E9F21C4" Ref="C37"  Part="1" 
 F 0 "C37" H 4765 5646 50  0000 L CNN
-F 1 "4u7/50V" H 4765 5555 50  0000 L CNN
+F 1 "1u/50V" H 4765 5555 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 4688 5450 50  0001 C CNN
 F 3 "~" H 4650 5600 50  0001 C CNN
 	1    4650 5600
@@ -660,7 +660,7 @@ Wire Wire Line
 	2600 5900 2600 5750
 Connection ~ 4100 5900
 Text Notes 2650 6350 0    50   ~ 0
-LM317:\nVo = 1.25 * (1 + (3K2 / 240)) + (50uA * 3K2) =  18.08V
+LM317:\nVo = 1.25 * (1 + (3K3 / 240)) + (50uA * 3K3) =  18.60V
 Text HLabel 7450 5900 2    50   Input ~ 0
 0V_EXCITER
 Wire Wire Line
