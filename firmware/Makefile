@@ -6,7 +6,6 @@
 # Compiler options here.
 ifeq ($(USE_OPT),)
   USE_OPT = -Og -ggdb -fomit-frame-pointer -falign-functions=16 -specs=nosys.specs -specs=nano.specs
-  USE_OPT += -DPORT_IGNORE_GCC_VERSION_CHECK
 endif
 
 # C specific options here (added to USE_OPT).
