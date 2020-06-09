@@ -57,8 +57,8 @@ void can_send_position_and_fault(const uint16_t position_value, const uint8_t fa
     txmsg.SID = 0x010; // Standard Identifier Value (11bits)
     txmsg.RTR = CAN_RTR_DATA; // Frame Type
     txmsg.DLC = 3; // Data Length
-    txmsg.data8[0] = (position_value >> 8) & 0xFF;
-    txmsg.data8[1] = position_value & 0xFF;
+    txmsg.data16[0] = position_value;
+    //txmsg.data8[1]
     txmsg.data8[2] = fault_value;
 
     canTransmitTimeout(&CAND1, CAN_ANY_MAILBOX, &txmsg, TIME_IMMEDIATE);
@@ -72,10 +72,10 @@ void can_send_sysinfo(const uint32_t gitversion, const int8_t temperature_degree
     txmsg.SID = 0x013; // Standard Identifier Value (11bits)
     txmsg.RTR = CAN_RTR_DATA; // Frame Type
     txmsg.DLC = 8; // Data Length (max = 8)
-    txmsg.data8[0] = (gitversion >> 24) & 0xFF;
-    txmsg.data8[1] = (gitversion >> 16) & 0xFF;
-    txmsg.data8[2] = (gitversion >> 8) & 0xFF;
-    txmsg.data8[3] = gitversion & 0xFF;
+    txmsg.data32[0] = gitversion >> 24;
+    //txmsg.data8[1]
+    //txmsg.data8[2]
+    //txmsg.data8[3]
     txmsg.data8[4] = temperature_degrees & 0xFF;
     txmsg.data8[5] = 0x00; // SPARE
     txmsg.data8[6] = (CAND1.can->ESR >> 24) & 0xFF; // Receive Error Counter
