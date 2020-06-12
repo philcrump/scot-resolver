@@ -72,7 +72,7 @@ void can_send_sysinfo(const uint32_t gitversion, const int8_t temperature_degree
     txmsg.SID = 0x013; // Standard Identifier Value (11bits)
     txmsg.RTR = CAN_RTR_DATA; // Frame Type
     txmsg.DLC = 8; // Data Length (max = 8)
-    txmsg.data32[0] = gitversion >> 24;
+    txmsg.data32[0] = gitversion;
     //txmsg.data8[1]
     //txmsg.data8[2]
     //txmsg.data8[3]
