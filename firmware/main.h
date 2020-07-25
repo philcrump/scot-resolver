@@ -4,6 +4,7 @@
 #include "ch.h"
 #include "hal.h"
 
+#include "config.h"
 #include "ad2s1210.h"
 #include "can.h"
 #include "watchdog.h"

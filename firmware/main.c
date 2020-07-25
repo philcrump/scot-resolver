@@ -1,5 +1,8 @@
 #include "main.h"
 
+extern char config_device_id_hexstr[25];
+extern char config_can_address_prefix_hexstr[5];
+
 static const SerialConfig serial_cfg = {
   115200,
   0,
@@ -28,11 +31,19 @@ int main(void)
   watchdog_init();
   chThdCreateStatic(watchdog_service_wa, sizeof(watchdog_service_wa), HIGHPRIO, watchdog_service_thread, NULL);
 
-  /* Start Debug Console */
+  config_init();
+
+  /* Start Debug Console (115200 8n1) */
   sdStart(&SD1, &serial_cfg);
 
   sdWriteString(&SD1, "SCOT Resolver Interface - Phil Crump M0DNY\r\n");
   sdWriteString(&SD1, " - Version: " GITVERSION "\r\n");
+  sdWriteString(&SD1, " - STM32 ID: ");
+  sdWriteString(&SD1, config_device_id_hexstr);
+  sdWriteString(&SD1, "\r\n");
+  sdWriteString(&SD1, " - CAN ADDRESS: ");
+  sdWriteString(&SD1, config_can_address_prefix_hexstr);
+  sdWriteString(&SD1, "\r\n");
 
   chThdCreateStatic(can_rx_service_wa, sizeof(can_rx_service_wa), NORMALPRIO, can_rx_service_thread, NULL);
   chThdCreateStatic(ad2s1210_service_wa, sizeof(ad2s1210_service_wa), NORMALPRIO, ad2s1210_service_thread, NULL);

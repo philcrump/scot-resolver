@@ -1,6 +1,13 @@
 #include "main.h"
 
 #include <string.h>
+
+extern uint32_t config_can_address_prefix;
+
+#define CAN_ADDRESS_POSITION  0x0
+#define CAN_ADDRESS_SYSINFO   0x3
+#define CAN_ADDRESS_COMMAND   0xA
+
 /*
   CAN_MCR_ABOM - Automatic Bus-Off Management
   CAN_MCR_AWUM - Automatic Wake-Up Management
@@ -26,12 +33,12 @@ static const CANConfig can_cfg = {
   .btr = CAN_BTR_SJW(2) | CAN_BTR_TS2(2) | CAN_BTR_TS1(11) | CAN_BTR_BRP(2)
 };
 
-static const CANFilter can_filter = {
+static CANFilter can_filter = {
   .filter = 1, // Number of filter bank to be programmed
   .mode = 0, // 0 = mask, 1 = list
   .scale = 0, // 0 = 16bits, 1 = 32bits
   .assignment = 0, // (must be set to 0)
-  .register1 = 0x0010, // identifier 1
+  .register1 = 0x0, // identifier 1 (set at runtime from config)
   .register2 = 0x07F0 // mask if mask mode, identifier2 if list mode
 };
 
@@ -42,6 +49,8 @@ void can_init(void)
         return;
     }
 
+    /* Load CAN address prefix from config */
+    can_filter.register1 = config_can_address_prefix;
     canSTM32SetFilters(&CAND1, 1, 1, &can_filter);
 
     canStart(&CAND1, &can_cfg);
@@ -54,7 +63,7 @@ void can_send_position_and_fault(const uint16_t position_value, const uint8_t fa
     CANTxFrame txmsg;
 
     txmsg.IDE = CAN_IDE_STD; // Identifier Type: Standard
-    txmsg.SID = 0x010; // Standard Identifier Value (11bits)
+    txmsg.SID = (config_can_address_prefix | CAN_ADDRESS_POSITION); // Standard Identifier Value (11bits)
     txmsg.RTR = CAN_RTR_DATA; // Frame Type
     txmsg.DLC = 3; // Data Length
     txmsg.data16[0] = position_value;
@@ -69,7 +78,7 @@ void can_send_sysinfo(const uint32_t gitversion, const int8_t temperature_degree
     CANTxFrame txmsg;
 
     txmsg.IDE = CAN_IDE_STD; // Identifier Type: Standard
-    txmsg.SID = 0x013; // Standard Identifier Value (11bits)
+    txmsg.SID = (config_can_address_prefix | CAN_ADDRESS_SYSINFO); // Standard Identifier Value (11bits)
     txmsg.RTR = CAN_RTR_DATA; // Frame Type
     txmsg.DLC = 8; // Data Length (max = 8)
     txmsg.data32[0] = gitversion;
@@ -89,7 +98,7 @@ static void can_rx_process(CANRxFrame *message)
 {
   if(message->RTR == CAN_RTR_DATA
     && message->IDE == CAN_IDE_STD
-    && message->SID == 0x01A)
+    && message->SID == (config_can_address_prefix | CAN_ADDRESS_COMMAND))
   {
     if(message->DLC == sizeof(can_command_reset)
       && 0 == memcmp(can_command_reset, message->data8, sizeof(can_command_reset)))
