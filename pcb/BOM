@@ -10,7 +10,7 @@ Mouser Parts List:
     2x 0603 1n 50V C0G 5%       80-C0603C102J5G3190
     4x 0603 4n7 50V X7R 5%      80-C0603C472J5R
     1x 0603 10u 10V X5R 10%     81-GRM188R61A106KE9D
-    1x 1210 10u 50V X7R 10%     963-UMK325AB7106KM-P
+    1x 1210 10u 50V X7R 10%     963-UMK325AB7106KM-P   <---- TODO: Check pad for this is 1210, feels small
     3x 0603 100n 50V X7R 10%    603-CC603KRX7R9BB104
     2x 0603 100p 50V C0G 5%     77-VJ0603A101JXACBC
 
@@ -71,7 +71,7 @@ Mouser Parts List:
 
 1x Power Supply {
     1x 1206 4u7 50V X7R   80-C1206C475K5RAUTO
-    1x TSR-1-24150  495-TSR-1-24150 (alternative: 495-TSRN1-2465A [pricier, wider input voltage range])
+    1x TSR-1-2465  495-TSR-1-2465 (alternative: 495-TSRN1-2465A [pricier, wider input voltage range])
     3x 0805 4u7 16V X7R     81-GRM21BR71C475KE1L <---- ERRATA: PCB v2 has 1x 0603 pad, 2x 1210 pads.
     4x Ferrite 0805         652-MH2029-601Y
 
@@ -95,8 +95,6 @@ Mouser Parts List:
     1x 0603 68K 1%          667-ERJ-3EKF6802V
     1x 0603 5K6 1%          667-ERJ-3EKF5601V
 }
-
-5th June - £53.80 ex VAT. (OUT OF DATE)
 
 571-282834-2            4
 571-2828343             1
