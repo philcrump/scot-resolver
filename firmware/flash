@@ -16,6 +16,7 @@ _DEBUG_="${COLOUR_YELLOW}[DEBUG]${COLOUR_OFF}"
 
 opt_sound=false;
 opt_power=false;
+opt_id=false;
 
 flashtool="arm-none-eabi-gdb"
 programmer=false
@@ -80,15 +81,52 @@ check_linux_serial_permissions() {
   fi
 }
 
+# Address is valid for STM32F0x
+get_device_id() {
+  #local temp_dir="$2"
+  #local log_file="$temp_dir/log_$$"
+  if ! temp_dir="`mktemp -d`"; then
+    print_err "$_ERROR_ Failed to make temporary directory"
+    return 1
+  fi
+  local id_file="$temp_dir/id_$$"
+
+  $flashtool -q --batch --batch-silent                         \
+  -ex 'target extended-remote '$programmer                  \
+  -ex 'monitor connect_srst disable'                         \
+  -ex 'monitor tpwr '$programmer_power                      \
+  -ex 'monitor swdp_scan'                                   \
+  -ex 'attach 1'                                            \
+  -ex 'set mem inaccessible-by-default off'                 \
+  -ex 'dump binary memory '$id_file' 0x1FFFF7AC 0x1FFFF7B8' \
+  >/dev/null 2>&1;
+  
+  if [ -e "$id_file" ]; then
+    id=`xxd -p "$id_file"`
+    echo "$id"
+    return 0
+  else
+    return 1
+  fi
+
+  if ! rm -rf "$temp_dir"; then
+    print_err "$_ERROR_ Unable to remove temporary directory"
+    return 1
+  fi
+}
+
 ## Read Flags
 OPTIND=1
-while getopts ":SP" opt; do
+while getopts ":SPI" opt; do
   case "$opt" in
     S) # Sound
       opt_sound=true
       ;;
     P) # Sound
       opt_power=true
+      ;;
+    I) # ID
+      opt_id=true
       ;;
     ?) # Illegal Option
       echo -e "$_ERROR_ Illegal option '$OPTARG'"
@@ -97,6 +135,26 @@ while getopts ":SP" opt; do
   esac
 done
 for i in `seq 2 $OPTIND`; do shift; done
+
+# Read Device ID and then exit (doesn't flash)
+if $opt_id;
+then
+  if programmer="`locate_black_magic`";
+  then
+    printf "$_INFO_ Black Magic Probe found. Querying Device ID..\n";
+    if device_id=`get_device_id`;
+    then
+      printf "$COLOUR_PURPLE[Board]$COLOUR_OFF Device ID: $device_id\n" \
+      && exit 0;
+    else
+      printf "$_ERROR_$COLOUR_RED Failed to read Device ID, is the board connected?$COLOUR_OFF\n" \
+      && exit 1;
+    fi
+  else
+    printf "$_ERROR_$COLOUR_RED Black Magic Probe required to read Device ID.$COLOUR_OFF\n" \
+    && exit 1
+  fi
+fi
 
 binary="${1}.elf"
 
