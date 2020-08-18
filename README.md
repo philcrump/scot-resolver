@@ -17,7 +17,9 @@ Resolver Interface for the SCOT.
 
 ### June 2020 PCB Errata
 
-* >= 2u2 50V Ripple Rejection Capacitor missing from across R22 (LM317 regulator)
-** Found to prevent oscillation with hostile downstream load (oscillating LT1763)
-* C24 LT1763 Bypass Capacitor is incorrectly placed, causes self-oscillation, and should not be populated.
+* Input Voltage rating is 22-32V, not 19-36V as printed on the PCB (limited by U6-LM317 dropout and thermal).
+* Optional Ripple Rejection Capacitor should be fitted across R22 (LM317 regulator)
+** 2u2 50V found to prevent oscillation with hostile downstream load (oscillating U2-LT1763)
+* C24 U2-LT1763 Bypass Capacitor is incorrectly placed, causes self-oscillation, and should not be populated.
 ** Attempt to wire this across to Vout instead as recommended also caused output oscillation when under load (25mA).
+* U6-LM317 regulator gets hot, within limits but would benefit from more heatsinking / different package.
