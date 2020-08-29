@@ -17,6 +17,9 @@ Resolver Interface for the SCOT.
 
 ### June 2020 PCB Errata
 
+* C25 has 0603 pad, C27 & C28 have 1210 pads, all should be 0805 to match the part.
+* C26 has 1210 pad, should be 1206.
+** Not disastrous, part still fits, with careful placement on 1210 to ensure direct contact with the pads.
 * Input Voltage rating is 22-32V, not 19-36V as printed on the PCB (limited by U6-LM317 dropout and thermal).
 * Optional Ripple Rejection Capacitor should be fitted across R22 (LM317 regulator)
 ** 2u2 50V found to prevent oscillation with hostile downstream load (oscillating U2-LT1763)

@@ -72,7 +72,7 @@ Mouser Parts List:
 1x Power Supply {
     1x 1206 4u7 50V X7R   80-C1206C475K5RAUTO
     1x TSR-1-2465  495-TSR-1-2465 (alternative: 495-TSRN1-2465A [pricier, wider input voltage range])
-    3x 0805 4u7 16V X7R     81-GRM21BR71C475KE1L <---- ERRATA: PCB v2 has 1x 0603 pad, 2x 1210 pads.
+    3x 0805 4u7 16V X7R     81-GRM21BR71C475KE1L
     4x Ferrite 0805         652-MH2029-601Y
 
     1x 1206 Green LED 3.3V @ 20mA   604-APTR3216ZGCK
