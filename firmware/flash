@@ -144,8 +144,9 @@ then
     printf "$_INFO_ Black Magic Probe found. Querying Device ID..\n";
     if device_id=`get_device_id`;
     then
-      printf "$COLOUR_PURPLE[Board]$COLOUR_OFF Device ID: $device_id\n" \
-      && exit 0;
+      printf "$COLOUR_PURPLE[Board]$COLOUR_OFF Device ID: $device_id\n";
+      printf " {`echo "${device_id}" | sed -r  's/.{2}/ 0x\0,/g;s/,$//'` }\n";
+      exit 0;
     else
       printf "$_ERROR_$COLOUR_RED Failed to read Device ID, is the board connected?$COLOUR_OFF\n" \
       && exit 1;
